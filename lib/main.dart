@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:fluttergraphql/screens/home_page.dart';
+import 'package:get/get.dart';
 import 'package:graphql_flutter/graphql_flutter.dart';
 
 void main() async {
@@ -18,7 +19,7 @@ class MyApp extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return MaterialApp(
+    return GetMaterialApp(
       debugShowCheckedModeBanner: false,
       title: 'Ricky & Morty',
       theme: ThemeData(

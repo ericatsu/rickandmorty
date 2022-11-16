@@ -4,7 +4,7 @@ import 'package:flutter/material.dart';
 import 'package:fluttergraphql/widgets/character_card.dart';
 import 'package:graphql_flutter/graphql_flutter.dart';
 
-import '../data/rick_morty_graphQL.dart';
+import '../data/query.dart';
 
 class MyHomePage extends StatefulWidget {
   const MyHomePage({Key? key, required this.title}) : super(key: key);

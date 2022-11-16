@@ -4,10 +4,10 @@ import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
 
 class CharacterCard extends StatelessWidget {
-  final Image image;
+  final Image img;
   final String name;
 
-  const CharacterCard({super.key, required this.image, required this.name});
+  const CharacterCard({super.key, required this.img, required this.name});
 
   @override
   Widget build(BuildContext context) {
@@ -25,7 +25,7 @@ class CharacterCard extends StatelessWidget {
             SizedBox(
               height: height * 0.1,
               width: width* 0.2,
-              child: image
+              child: img
             ),
             Spacer(),
             Text(

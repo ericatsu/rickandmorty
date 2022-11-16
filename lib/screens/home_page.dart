@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:fluttergraphql/controller/allcharacters_controller.dart';
+import 'package:fluttergraphql/screens/character_page.dart';
 import 'package:fluttergraphql/widgets/character_card.dart';
 import 'package:get/get.dart';
 
@@ -24,9 +25,14 @@ class MyHomePage extends StatelessWidget {
                 child: CircularProgressIndicator(),
               );
             }
-            return CharacterCard(
-              image: Image(image: NetworkImage(controller.characters[index].image),),
-              name: controller.characters[index].name,
+            return GestureDetector(
+              onTap: () {
+                Get.toNamed('/character_page', arguments: {'index': index});
+              },
+              child: CharacterCard(
+                img: Image(image: NetworkImage(controller.characters[index].image),),
+                name: controller.characters[index].name,
+              ),
             );
           })),
     );

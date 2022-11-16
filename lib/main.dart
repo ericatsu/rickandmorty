@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:fluttergraphql/screens/character_page.dart';
 import 'package:fluttergraphql/screens/home_page.dart';
 import 'package:get/get.dart';
 
@@ -13,10 +14,11 @@ class MyApp extends StatelessWidget {
   Widget build(BuildContext context) {
     return GetMaterialApp(
       debugShowCheckedModeBanner: false,
-      title: 'Ricky & Morty',
-      theme: ThemeData(
-        primarySwatch: Colors.blue,
-      ),
+      initialRoute: '/',
+      getPages: [
+        GetPage(name: '/', page: () => MyHomePage()),
+        GetPage(name: '/character_page', page: () => CharacterPage()),
+      ],
       home: MyHomePage(),
     );
   }

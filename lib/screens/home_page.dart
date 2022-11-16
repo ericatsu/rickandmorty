@@ -1,6 +1,5 @@
 import 'package:flutter/material.dart';
 import 'package:fluttergraphql/controller/allcharacters_controller.dart';
-import 'package:fluttergraphql/screens/character_page.dart';
 import 'package:fluttergraphql/widgets/character_card.dart';
 import 'package:get/get.dart';
 
@@ -18,7 +17,7 @@ class MyHomePage extends StatelessWidget {
           controller: controller.scrollController,
           itemCount: controller.characters.length,
           gridDelegate:
-              SliverGridDelegateWithFixedCrossAxisCount(crossAxisCount: 2),
+              const SliverGridDelegateWithFixedCrossAxisCount(crossAxisCount: 2),
           itemBuilder: (context, index) {
             if (controller.isLoading.isTrue) {
               return const Center(

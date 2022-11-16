@@ -1,7 +1,10 @@
+// ignore_for_file: prefer_const_constructors
+
 import 'package:flutter/material.dart';
+import 'package:fluttergraphql/widgets/character_card.dart';
 import 'package:graphql_flutter/graphql_flutter.dart';
 
-import '../data/rickMortyGraphQL.dart';
+import '../data/rick_morty_graphQL.dart';
 
 class MyHomePage extends StatefulWidget {
   const MyHomePage({Key? key, required this.title}) : super(key: key);
@@ -12,7 +15,6 @@ class MyHomePage extends StatefulWidget {
 
 class _MyHomePageState extends State<MyHomePage> {
   List<dynamic> characters = [];
-  bool _loading = false;
 
   @override
   Widget build(BuildContext context) {
@@ -37,21 +39,15 @@ class _MyHomePageState extends State<MyHomePage> {
 
           return Padding(
             padding: const EdgeInsets.all(8.0),
-            child: ListView.builder(
+            child: GridView.builder(
+                gridDelegate: SliverGridDelegateWithFixedCrossAxisCount(
+                    crossAxisCount: 2),
                 itemCount: charaterList.length,
                 itemBuilder: (context, index) {
-                  return Card(
-                    child: ListTile(
-                      leading: Image(
-                        image: NetworkImage(
-                          charaterList[index]['image'],
-                        ),
-                      ),
-                      title: Text(
-                        charaterList[index]['name'],
-                      ),
-                    ),
-                  );
+                  return CharacterCard(
+                      image: Image(
+                          image: NetworkImage(charaterList[index]['image'])),
+                      name: charaterList[index]['name']);
                 }),
           );
         }),

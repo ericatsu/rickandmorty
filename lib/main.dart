@@ -9,7 +9,7 @@ void main() async {
       link: link,
       cache: GraphQLCache(store: InMemoryStore()),)
   );
-  var app = GraphQLProvider(client: client, child: MyApp(),);
+  var app = GraphQLProvider(client: client, child: const MyApp(),);
   runApp(app);
 }
 
@@ -19,6 +19,7 @@ class MyApp extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
+      debugShowCheckedModeBanner: false,
       title: 'Ricky & Morty',
       theme: ThemeData(
         primarySwatch: Colors.blue,

@@ -9,7 +9,7 @@ class CharacterPage extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    final character =controller.character;
+    final character = controller.character;
     return Scaffold(
       appBar: AppBar(
         title: Text(controller.character.name),

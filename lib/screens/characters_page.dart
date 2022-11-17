@@ -3,8 +3,8 @@ import 'package:fluttergraphql/controller/allcharacters_controller.dart';
 import 'package:fluttergraphql/widgets/character_card.dart';
 import 'package:get/get.dart';
 
-class MyHomePage extends StatelessWidget {
-  MyHomePage({super.key});
+class CharactersPage extends StatelessWidget {
+  CharactersPage({super.key});
   final controller = Get.put(AllCharactersController());
 
   @override

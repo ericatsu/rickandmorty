@@ -15,6 +15,8 @@ class AllCharactersController extends GetxController {
 
   final ScrollController scrollController = ScrollController();
 
+  
+
   @override
   void onInit() {
     fetchCharacters(page.value);

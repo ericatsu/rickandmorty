@@ -10,14 +10,14 @@ class CharactersPage extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: AppBar(
-        title: const Text('Ricky And Morty'),
-      ),
+      
+
+      //The Body of the Home Page
       body: Obx(() => GridView.builder(
           controller: controller.scrollController,
           itemCount: controller.characters.length,
-          gridDelegate:
-              const SliverGridDelegateWithFixedCrossAxisCount(crossAxisCount: 2),
+          gridDelegate: const SliverGridDelegateWithFixedCrossAxisCount(
+              crossAxisCount: 2),
           itemBuilder: (context, index) {
             if (controller.isLoading.isTrue) {
               return const Center(
@@ -29,7 +29,9 @@ class CharactersPage extends StatelessWidget {
                 Get.toNamed('/character_page', arguments: {'index': index});
               },
               child: CharacterCard(
-                img: Image(image: NetworkImage(controller.characters[index].image),),
+                img: Image(
+                  image: NetworkImage(controller.characters[index].image),
+                ),
                 name: controller.characters[index].name,
               ),
             );

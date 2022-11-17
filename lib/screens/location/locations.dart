@@ -11,6 +11,8 @@ class LocationsPage extends StatefulWidget {
 class _LocationsPageState extends State<LocationsPage> {
   @override
   Widget build(BuildContext context) {
-    return Container();
+    return Container(
+      color: Colors.black,
+    );
   }
 }

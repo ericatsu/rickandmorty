@@ -11,7 +11,7 @@ class _EpisodesPageState extends State<EpisodesPage> {
   @override
   Widget build(BuildContext context) {
     return Container(
-      
+      color: Colors.amber,
     );
   }
 }

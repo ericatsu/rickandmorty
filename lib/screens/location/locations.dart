@@ -1,18 +1,17 @@
 
 import 'package:flutter/material.dart';
+import 'package:fluttergraphql/controller/location/locations_controller.dart';
+import 'package:get/get.dart';
 
-class LocationsPage extends StatefulWidget {
-  const LocationsPage({super.key});
+class LocationsPage extends StatelessWidget {
+  LocationsPage({super.key});
+  final controller = Get.put(LocationsController());
 
-  @override
-  State<LocationsPage> createState() => _LocationsPageState();
-}
-
-class _LocationsPageState extends State<LocationsPage> {
   @override
   Widget build(BuildContext context) {
     return Container(
       color: Colors.black,
+      child: Text("name"),
     );
   }
 }

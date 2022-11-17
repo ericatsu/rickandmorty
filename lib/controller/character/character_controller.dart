@@ -1,5 +1,5 @@
 import 'package:get/get.dart';
-import '../model/character.dart';
+import '../../model/character.dart';
 import 'allcharacters_controller.dart';
 
 class CharacterController extends GetxController {

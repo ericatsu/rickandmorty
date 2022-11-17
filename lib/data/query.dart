@@ -3,7 +3,7 @@ import 'package:graphql/client.dart';
 class RickandMortyApi {
   static final httpLink = HttpLink('https://rickandmortyapi.com/graphql');
 
-  static String fetchAllCharactersGraphQl = """
+  static String fetchAllGraphQl = """
 query FetchAllCharacters(\$page: Int){
   characters(page: \$page) {
     results {

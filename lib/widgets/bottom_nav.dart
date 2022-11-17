@@ -3,7 +3,7 @@ import 'package:fluttergraphql/screens/episode/episodes.dart';
 import 'package:fluttergraphql/screens/location/locations.dart';
 import 'package:google_nav_bar/google_nav_bar.dart';
 
-import '../screens/characters_page.dart';
+import '../screens/character/characters_page.dart';
 
 class BottomNav extends StatefulWidget {
   const BottomNav({super.key});

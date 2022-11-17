@@ -9,7 +9,7 @@ class Services {
 
   Future<QueryResult> getResult(int page) async {
     final QueryOptions options = QueryOptions(
-      document: gql(RickandMortyApi.fetchAllCharactersGraphQl),
+      document: gql(RickandMortyApi.fetchAllGraphQl),
       variables: <String, dynamic>{
         'page': page,
       },

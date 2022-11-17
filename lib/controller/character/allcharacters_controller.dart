@@ -1,15 +1,15 @@
 import 'package:flutter/cupertino.dart';
 import 'package:get/get.dart';
 
-import '../model/character.dart';
-import '../services/service.dart';
+import '../../model/character.dart';
+import '../../services/service.dart';
 
 class AllCharactersController extends GetxController {
   final page = 1.obs;
   final isLoading = false.obs;
   final hasException = false.obs;
 
-  final _repository = Services();
+  final _service = Services();
 
   final characters = <Character>[].obs;
 
@@ -32,7 +32,7 @@ class AllCharactersController extends GetxController {
 
   void fetchCharacters(int page) async {
     isLoading.value = true;
-    final result = await _repository.getResult(page);
+    final result = await _service.getResult(page);
 
     if (result.hasException) {
       hasException.value = true;

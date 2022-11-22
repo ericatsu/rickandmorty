@@ -11,26 +11,30 @@ class LocationCard extends StatelessWidget {
     final double height = MediaQuery.of(context).size.height;
     final double width = MediaQuery.of(context).size.width;
 
-    return Scaffold(
-      body: Column(
-        children: [
-          ClipRRect(
-            borderRadius: BorderRadius.circular(35),
-            child: Column(
-              children: [
-                SizedBox(
-                  height: height * 0.3,
-                  width: width * 0.1,
-                  child: img,
-                ),
-                Text(name),
-                Text(type)
-              ],
+    return Container(
+          margin:const EdgeInsets.all(8.0),
+          child: Card(
+            shape: const RoundedRectangleBorder(borderRadius: BorderRadius.all(Radius.circular(8.0))),
+            child: InkWell(
+              onTap: () => print("on tap"),
+              child: Column(
+                crossAxisAlignment: CrossAxisAlignment.stretch,
+                children: <Widget>[
+                  ClipRRect(
+                    borderRadius: const BorderRadius.only(
+                      topLeft: Radius.circular(8.0),
+                      topRight: Radius.circular(8.0),
+                    ),
+                    child: img
+                  ),
+                  ListTile(
+                    title: Text(name),
+                    subtitle: Text(type),
+                  ),
+                ],
+              ),
             ),
-            
           ),
-        ],
-      ),
-    );
+        );
   }
 }

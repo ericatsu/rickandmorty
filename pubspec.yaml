@@ -43,6 +43,9 @@ dependencies:
   json_annotation: ^4.7.0
   json_serializable: ^6.5.4
   google_nav_bar: ^5.0.6
+  string_templates: "^0.0.3"
+  cached_network_image: ^3.2.2
+  ferry: ^0.11.2+1
 
 dev_dependencies:
   flutter_test:

@@ -51,3 +51,4 @@ class AllCharactersController extends GetxController {
     }
   }
 }
+

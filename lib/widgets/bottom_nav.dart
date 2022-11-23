@@ -22,7 +22,7 @@ class _BottomNavState extends State<BottomNav> {
   }
 
   final List<Widget> _pages = <Widget>[
-     CharactersPage(),
+    CharactersPage(),
      LocationsPage(),
      EpisodesPage()
   ];

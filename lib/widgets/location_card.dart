@@ -1,10 +1,10 @@
 import 'package:flutter/material.dart';
 
 class LocationCard extends StatelessWidget {
-  final Image img;
+  //final Image img;
   final String name;
   final String type;
-  const LocationCard({super.key, required this.img, required this.name, required this.type});
+  const LocationCard({super.key, required this.name, required this.type});
 
   @override
   Widget build(BuildContext context) {
@@ -25,7 +25,6 @@ class LocationCard extends StatelessWidget {
                       topLeft: Radius.circular(8.0),
                       topRight: Radius.circular(8.0),
                     ),
-                    child: img
                   ),
                   ListTile(
                     title: Text(name),

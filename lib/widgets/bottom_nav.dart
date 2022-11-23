@@ -1,9 +1,9 @@
 import 'package:flutter/material.dart';
-import 'package:fluttergraphql/screens/episode/episodes.dart';
-import 'package:fluttergraphql/screens/location/locations.dart';
+import 'package:fluttergraphql/screens/episode/allepisodes.dart';
+import 'package:fluttergraphql/screens/location/alllocations.dart';
 import 'package:google_nav_bar/google_nav_bar.dart';
 
-import '../screens/character/characters_page.dart';
+import '../screens/character/allcharacter_page.dart';
 
 class BottomNav extends StatefulWidget {
   const BottomNav({super.key});

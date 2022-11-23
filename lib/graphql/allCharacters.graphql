@@ -1,0 +1,17 @@
+query allCharacters($page: Int) {
+  characters(page: $page) {
+    info {
+      count
+      pages
+      next
+    }
+    results {
+      id
+      name
+      species
+      gender
+      image
+      created
+    }
+  }
+}

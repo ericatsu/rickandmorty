@@ -1,0 +1,16 @@
+query allLocations($page: Int) {
+  locations(page: $page) {
+    info {
+      count
+      pages
+      next
+    }
+    results {
+      id
+      name
+      type
+      dimension
+      created
+    }
+  }
+}

@@ -11,7 +11,7 @@ Location _$LocationFromJson(Map json) => Location(
       name: json['name'] as String?,
       type: json['type'] as String?,
       dimension: json['dimension'] as String?,
-      created: json['created'] as String?,
+      created: json['created'] as String?, residents: [],
     );
 
 Map<String, dynamic> _$LocationToJson(Location instance) => <String, dynamic>{

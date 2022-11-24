@@ -33,7 +33,7 @@ class LocationsPage extends StatelessWidget {
                   // img: Image(
                   //   image: NetworkImage(controller.location[index].image),
                   // ),
-                  name: controller.locations[index].name.toString(), type: controller.locations[index].type.toString(),
+                  name: controller.locations[index].name.toString(), type: controller.locations[index].type.toString(), dimension: controller.locations[index].dimension.toString(),
                 ),
               );
             }),

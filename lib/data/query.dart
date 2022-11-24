@@ -55,6 +55,16 @@ query FetchAllLocations(\$page: Int){
                   id
                   name
                   type
+                  dimension
+                  residents {
+        id
+        name
+        species
+        type
+        image
+        status
+        gender
+      }
                 }
               }
             }

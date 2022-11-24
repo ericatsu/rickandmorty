@@ -7,6 +7,8 @@ import 'package:get/get.dart';
 
 import 'screens/character/character.dart';
 import 'screens/character/allcharacter_page.dart';
+import 'screens/location/alllocations.dart';
+import 'screens/location/location.dart';
 
 void main() async {
   runApp(const MyApp());
@@ -23,8 +25,8 @@ class MyApp extends StatelessWidget {
       getPages: [
         GetPage(name: '/', page: () => CharactersPage()),
         GetPage(name: '/character_page', page: () => CharacterPage()),
-        // GetPage(name: '/', page: () => LocationsPage()),
-        // GetPage(name: '/location', page: () => LocationPage()),
+        GetPage(name: '/', page: () => LocationsPage()),
+        GetPage(name: '/location', page: () => LocationPage()),
       ],
       home: BottomNav(),
     );

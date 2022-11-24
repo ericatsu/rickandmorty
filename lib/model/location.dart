@@ -1,4 +1,6 @@
 import 'package:json_annotation/json_annotation.dart';
+
+import 'character.dart';
 part 'location.g.dart';
 
 @JsonSerializable()
@@ -7,7 +9,7 @@ class Location {
   final String? name;
   final String? type;
   final String? dimension;
-
+  final List<Character> residents;
   final String? created;
 
   Location({
@@ -16,6 +18,7 @@ class Location {
     required this.type,
     required this.dimension,
     required this.created,
+    required this.residents,
   });
 
   factory Location.fromJson(Map<String, dynamic> json) =>

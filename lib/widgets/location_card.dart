@@ -18,8 +18,8 @@ class LocationCard extends StatelessWidget {
             child: Column(
               crossAxisAlignment: CrossAxisAlignment.stretch,
               children: <Widget>[
-                ClipRRect(
-                  borderRadius: const BorderRadius.only(
+                const ClipRRect(
+                  borderRadius: BorderRadius.only(
                     topLeft: Radius.circular(8.0),
                     topRight: Radius.circular(8.0),
                   ),

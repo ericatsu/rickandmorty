@@ -1,5 +1,5 @@
 name: fluttergraphql
-description: A new Flutter project.
+description: Browse and search the characters, locations and episodes of the Rick And Morty series using Flutter and GraphQL.
 
 # The following line prevents the package from being accidentally published to
 # pub.dev using `flutter pub publish`. This is preferred for private packages.

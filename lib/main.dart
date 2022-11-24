@@ -1,4 +1,6 @@
 import 'package:flutter/material.dart';
+import 'package:fluttergraphql/screens/episode/allepisodes.dart';
+import 'package:fluttergraphql/screens/episode/episode.dart';
 // import 'package:fluttergraphql/client/client.dart';
 // import 'package:fluttergraphql/screens/location/alllocations.dart';
 // import 'package:fluttergraphql/screens/location/location.dart';
@@ -27,6 +29,8 @@ class MyApp extends StatelessWidget {
         GetPage(name: '/character_page', page: () => CharacterPage()),
         GetPage(name: '/', page: () => LocationsPage()),
         GetPage(name: '/location', page: () => LocationPage()),
+        GetPage(name: '/', page: () => EpisodesPage()),
+        GetPage(name: '/episode', page: () => EpisodePage()),
       ],
       home: BottomNav(),
     );

@@ -1,4 +1,3 @@
-
 import 'package:flutter/material.dart';
 import 'package:fluttergraphql/controller/location/locations_controller.dart';
 import 'package:fluttergraphql/widgets/location_card.dart';
@@ -33,7 +32,9 @@ class LocationsPage extends StatelessWidget {
                   // img: Image(
                   //   image: NetworkImage(controller.location[index].image),
                   // ),
-                  name: controller.locations[index].name.toString(), type: controller.locations[index].type.toString(), dimension: controller.locations[index].dimension.toString(),
+                  name: controller.locations[index].name.toString(),
+                  type: controller.locations[index].type.toString(),
+                  dimension: controller.locations[index].dimension.toString(),
                 ),
               );
             }),

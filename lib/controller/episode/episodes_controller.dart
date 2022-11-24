@@ -3,14 +3,14 @@ import 'package:fluttergraphql/model/episode.dart';
 import 'package:fluttergraphql/services/episode_service.dart';
 import 'package:get/get.dart';
 
-class EpisodeController extends GetxController {
+class EpisodesController extends GetxController {
   final page = 2.obs;
   final isLoading = false.obs;
   final hasException = false.obs;
 
   final _service = EpisodeServices();
 
-  final episode = <Episode>[].obs;
+  final episodes = <Episode>[].obs;
 
   final ScrollController scrollController = ScrollController();
 
@@ -43,7 +43,7 @@ class EpisodeController extends GetxController {
     if (hasException.isFalse && isLoading.isFalse) {
       final List<dynamic> listResult = result.data!["episodes"]["results"];
       for (var element in listResult) {
-        episode.add(Episode.fromJson(element));
+        episodes.add(Episode.fromJson(element));
       }
     }
   }

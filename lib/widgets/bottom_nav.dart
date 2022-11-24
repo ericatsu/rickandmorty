@@ -23,10 +23,10 @@ class _BottomNavState extends State<BottomNav> {
 
   final List<Widget> _pages = <Widget>[
     CharactersPage(),
-     LocationsPage(),
-     EpisodesPage()
+    LocationsPage(),
+    EpisodesPage()
   ];
-  
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -34,25 +34,36 @@ class _BottomNavState extends State<BottomNav> {
       bottomNavigationBar: Container(
         color: const Color(0xFF00AFCA),
         child: Padding(
-          padding: const EdgeInsets.symmetric(horizontal: 15, vertical: 20),
+          padding: const EdgeInsets.symmetric(horizontal: 12, vertical: 20),
           child: GNav(
-              backgroundColor: Color(0xFF00AFCA),
-              color: Colors.white,
-              activeColor: Colors.white,
-              tabBackgroundColor: Colors.blue.shade200,
-              onTabChange: _navigateBottomBar,
-              
-              gap: 8,
-              padding: EdgeInsets.all(8.0),
-              tabs: const [
-                GButton(
-                  icon: Icons.people,
-                  text: 'Character',
-                ),
-                GButton(icon: Icons.location_pin, text: 'Location'),
-                GButton(icon: Icons.movie, text: 'Episodes'),
-              ],
+            backgroundColor: const Color(0xFF00AFCA),
+            color: Colors.white,
+            activeColor: Colors.white,
+            tabBackgroundColor: Colors.blue.shade200,
+            onTabChange: _navigateBottomBar,
+            gap: 6,
+            padding: const EdgeInsets.all(8.0),
+            tabs: const [
+              GButton(
+                icon: Icons.people,
+                iconSize: 30,
+                text: 'Character',
+                textSize: 30,
               ),
+              GButton(
+                icon: Icons.location_pin,
+                iconSize: 30,
+                text: 'Location',
+                textSize: 30,
+              ),
+              GButton(
+                icon: Icons.movie,
+                iconSize: 30,
+                text: 'Episodes',
+                textSize: 30,
+              ),
+            ],
+          ),
         ),
       ),
     );

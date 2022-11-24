@@ -1,4 +1,4 @@
-package com.example.fluttergraphql
+package com.lester.rickandmorty
 
 import io.flutter.embedding.android.FlutterActivity
 

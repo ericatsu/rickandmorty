@@ -1,7 +1,7 @@
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
-    package="com.example.fluttergraphql">
+    package="com.lester.rickandmorty">
    <application
-        android:label="fluttergraphql"
+        android:label="RickAndMorty"
         android:name="${applicationName}"
         android:icon="@mipmap/ic_launcher">
         <activity

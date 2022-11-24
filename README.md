@@ -1,16 +1,11 @@
-# fluttergraphql
+# Rick And Morty Mobile App
 
-A new Flutter project.
+Browse and search the characters, locations and episodes of the Rick And Morty series using Flutter and GraphQL.
 
-## Getting Started
+## Introduction
 
-This project is a starting point for a Flutter application.
+I created a mobile application using Flutter and GraphQL API using [Rick And Morty API](https://rickandmortyapi.com/graphql). You can browse and search for Characters, Locations, and Episodes in details of the [Rick and Morty Sitcom](https://rickandmortyapi.com/).
 
-A few resources to get you started if this is your first Flutter project:
+## Goal
+- Integration of GraphQL API with Flutter. 
 
-- [Lab: Write your first Flutter app](https://docs.flutter.dev/get-started/codelab)
-- [Cookbook: Useful Flutter samples](https://docs.flutter.dev/cookbook)
-
-For help getting started with Flutter development, view the
-[online documentation](https://docs.flutter.dev/), which offers tutorials,
-samples, guidance on mobile development, and a full API reference.

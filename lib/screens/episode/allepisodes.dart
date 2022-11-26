@@ -35,7 +35,7 @@ class EpisodesPage extends StatelessWidget {
                   // ),
                   name: controller.episodes[index].name,
                   type: controller.episodes[index].episode,
-                  dimension: controller.episodes[index].air_date,
+                  //dimension: controller.episodes[index].air_date,
                 ),
               );
             }),

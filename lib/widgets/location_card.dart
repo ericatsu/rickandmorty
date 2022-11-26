@@ -1,37 +1,51 @@
 import 'package:flutter/material.dart';
+import 'package:google_fonts/google_fonts.dart';
 
 class LocationCard extends StatelessWidget {
-  final String dimension;
   final String name;
   final String type;
-  const LocationCard({super.key, required this.name, required this.type, required this.dimension});
+  LocationCard({super.key, required this.name, required this.type});
 
+   
   @override
   Widget build(BuildContext context) {
     final double height = MediaQuery.of(context).size.height;
     final double width = MediaQuery.of(context).size.width;
-
+    
     return Container(
-          margin:const EdgeInsets.all(8.0),
-          child: Card(
-            shape: const RoundedRectangleBorder(borderRadius: BorderRadius.all(Radius.circular(8.0))),
-            child: Column(
-              crossAxisAlignment: CrossAxisAlignment.stretch,
-              children: <Widget>[
-                const ClipRRect(
-                  borderRadius: BorderRadius.only(
-                    topLeft: Radius.circular(8.0),
-                    topRight: Radius.circular(8.0),
-                  ),
-                ),
-                ListTile(
-                  title: Text(name),
-                  subtitle: Text(type),
-                ),
-                Text(dimension)
-              ],
+      margin: EdgeInsets.all(10),
+      child: Column(
+        crossAxisAlignment: CrossAxisAlignment.start,
+        children: [
+             ClipRRect(
+              borderRadius: BorderRadius.circular(10),
+              child: const Image(
+                fit: BoxFit.fill,
+                image: AssetImage('images/earth.jpg'),
+              ),
+             ),
+             const SizedBox(
+            height: 8,
+          ),
+            Text(
+            name,
+            style: GoogleFonts.openSans(
+              textStyle: const TextStyle(
+                fontSize: 16,
+                fontWeight: FontWeight.w600,
+              ),
             ),
           ),
-        );
+            Text(
+            type,
+            style: GoogleFonts.openSans(
+              textStyle: const TextStyle(
+                fontSize: 13,
+              ),
+            ),
+          ),
+        ],
+      ),
+    );
   }
 }

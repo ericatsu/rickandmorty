@@ -3,6 +3,7 @@ import 'package:fluttergraphql/widgets/episode_top.dart';
 import 'package:get/get.dart';
 
 import '../../controller/episode/episodes_controller.dart';
+import '../../widgets/episode_card.dart';
 import '../../widgets/location_card.dart';
 
 class EpisodesPage extends StatelessWidget {
@@ -21,11 +22,9 @@ class EpisodesPage extends StatelessWidget {
                 child: Padding(
                   padding: const EdgeInsets.symmetric(horizontal: 10),
                   child: Obx(
-                    () => GridView.builder(
+                    () => ListView.builder(
                         controller: controller.scrollController,
                         itemCount: controller.episodes.length,
-                        gridDelegate: const SliverGridDelegateWithFixedCrossAxisCount(
-                            crossAxisCount: 1),
                         itemBuilder: (context, index) {
                           if (controller.isLoading.isTrue) {
                             return const Center(
@@ -36,13 +35,13 @@ class EpisodesPage extends StatelessWidget {
                             onTap: () {
                               Get.toNamed('/episode', arguments: {'index': index});
                             },
-                            child: LocationCard(
+                            child: EpisodeCard(
                               // img: Image(
                               //   image: NetworkImage(controller.location[index].image),
                               // ),
                               name: controller.episodes[index].name,
-                              type: controller.episodes[index].episode,
-                              //dimension: controller.episodes[index].air_date,
+                              episode: controller.episodes[index].episode,
+                              airdate: controller.episodes[index].air_date,
                             ),
                           );
                         }),

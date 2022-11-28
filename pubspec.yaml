@@ -42,6 +42,7 @@ dependencies:
   cached_network_image: ^3.2.2
   graphql_flutter: ^5.0.0
   json_annotation: ^4.4.0
+  flutter_rating_bar: ^4.0.1
   
 
 dev_dependencies:

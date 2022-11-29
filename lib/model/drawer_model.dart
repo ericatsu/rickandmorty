@@ -23,7 +23,7 @@ class DrawerModel extends StatelessWidget {
             Icon(
               icon,
               size: 20,
-              color: Color(0xFF0B3C5D),
+              color: const Color(0xFF0B3C5D),
             ),
             const SizedBox(
               width: 40,

@@ -4,7 +4,6 @@ import 'package:get/get.dart';
 
 import '../../controller/episode/episodes_controller.dart';
 import '../../widgets/episode_card.dart';
-import '../../widgets/location_card.dart';
 
 class EpisodesPage extends StatelessWidget {
   EpisodesPage({super.key});

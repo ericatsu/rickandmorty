@@ -10,7 +10,7 @@ class CharacterAppBar extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     final double height = MediaQuery.of(context).size.height;
-    final double width = MediaQuery.of(context).size.width;
+    //final double width = MediaQuery.of(context).size.width;
 
     return Container(
       padding: const EdgeInsets.only(top: 15, left: 20, right: 20),
@@ -42,11 +42,7 @@ class CharacterAppBar extends StatelessWidget {
                   onTap: () {
                     Scaffold.of(context).openDrawer();
                   },
-                  child: Container(
-                    //padding: const EdgeInsets.all(6.0),
-                    child:
-                        Image.asset("images/menu.png", height: 45, width: 45),
-                  ),
+                  child: Image.asset("images/menu.png", height: 45, width: 45),
                 );
               }),
               CircleButton(

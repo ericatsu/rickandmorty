@@ -32,7 +32,7 @@ class MyApp extends StatelessWidget {
         GetPage(name: '/', page: () => EpisodesPage()),
         GetPage(name: '/episode', page: () => EpisodePage()),
       ],
-      home: BottomNav(),
+      home: const BottomNav(),
     );
   }
 }

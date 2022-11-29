@@ -14,8 +14,8 @@ class EpisodeCard extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    final double height = MediaQuery.of(context).size.height;
-    final double width = MediaQuery.of(context).size.width;
+    // final double height = MediaQuery.of(context).size.height;
+    // final double width = MediaQuery.of(context).size.width;
 
     return Card(
       child: Container(
@@ -24,14 +24,14 @@ class EpisodeCard extends StatelessWidget {
           children: [
             ClipRRect(
               borderRadius: BorderRadius.circular(10),
-              child: Image(
+              child: const Image(
                 fit: BoxFit.fill,
                 height: 100,
                 width: 80,
                 image: AssetImage('images/earth.jpg'),
               ),
             ),
-            SizedBox(width: 20,),
+            const SizedBox(width: 20,),
             Column(
               crossAxisAlignment: CrossAxisAlignment.start,
               children: [
@@ -77,7 +77,7 @@ class EpisodeCard extends StatelessWidget {
                   padding: const EdgeInsets.all(5.0),
                   decoration: BoxDecoration(
                     border: Border.all(width: 1, color: Colors.blue,),
-                    borderRadius: BorderRadius.all(Radius.circular(5.0))
+                    borderRadius: const BorderRadius.all(Radius.circular(5.0))
                   ),
                   child: Text(episode, style: GoogleFonts.openSans(
                       textStyle: const TextStyle(

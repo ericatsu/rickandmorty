@@ -10,8 +10,6 @@ class LocationAppBar extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    final double height = MediaQuery.of(context).size.height;
-    final double width = MediaQuery.of(context).size.width;
 
     return Container(
       padding: const EdgeInsets.only(top: 20, left: 20, right: 20),

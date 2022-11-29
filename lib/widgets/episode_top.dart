@@ -34,7 +34,7 @@ class EpisodeTop extends StatelessWidget {
                  Colors.transparent
               ])),
             child: Padding(
-              padding: const EdgeInsets.symmetric(horizontal: 12),
+              padding: const EdgeInsets.symmetric(horizontal: 15),
               child: Column(
                 crossAxisAlignment: CrossAxisAlignment.start,
                 children: [

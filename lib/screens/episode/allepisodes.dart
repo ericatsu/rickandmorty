@@ -20,7 +20,7 @@ class EpisodesPage extends StatelessWidget {
               const EpisodeTop(),
               Flexible(
                 child: Padding(
-                  padding: const EdgeInsets.symmetric(horizontal: 10),
+                  padding: const EdgeInsets.symmetric(horizontal: 12),
                   child: Obx(
                     () => ListView.builder(
                         controller: controller.scrollController,

@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:fluttergraphql/widgets/episode_top.dart';
+import 'package:fluttergraphql/widgets/season_shape.dart';
 import 'package:get/get.dart';
 
 import '../../controller/episode/episodes_controller.dart';
@@ -17,6 +18,7 @@ class EpisodesPage extends StatelessWidget {
           Column(
             children: [
               const EpisodeTop(),
+              const SeasonChip(),
               Flexible(
                 child: Padding(
                   padding: const EdgeInsets.symmetric(horizontal: 12),

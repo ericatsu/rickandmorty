@@ -33,24 +33,24 @@ class CharactersPage extends StatelessWidget {
               flexibleSpace: CharacterAppBar(),
             ),
             SliverToBoxAdapter(
-              child: Obx(
-                () => GridView.builder(
-                    controller: controller.scrollController,
-                    itemCount: controller.characters.length,
-                    primary: false,
-                    shrinkWrap: true,
-                    gridDelegate:
-                        const SliverGridDelegateWithFixedCrossAxisCount(
-                            crossAxisCount: 2),
-                    itemBuilder: (context, index) {
-                      if (controller.isLoading.isTrue) {
-                        return const Center(
-                          child: CircularProgressIndicator(),
-                        );
-                      }
-                      return Padding(
-                        padding: const EdgeInsets.symmetric(horizontal: 30),
-                        child: GestureDetector(
+              child: Padding(
+                padding: const EdgeInsets.symmetric(horizontal: 10),
+                child: Obx(
+                  () => GridView.builder(
+                      controller: controller.scrollController,
+                      itemCount: controller.characters.length,
+                      primary: false,
+                      shrinkWrap: true,
+                      gridDelegate:
+                          const SliverGridDelegateWithFixedCrossAxisCount(
+                              crossAxisCount: 2),
+                      itemBuilder: (context, index) {
+                        if (controller.isLoading.isTrue) {
+                          return const Center(
+                            child: CircularProgressIndicator(),
+                          );
+                        }
+                        return GestureDetector(
                           onTap: () {
                             Get.toNamed('/character_page',
                                 arguments: {'index': index});
@@ -68,9 +68,9 @@ class CharactersPage extends StatelessWidget {
                             species: controller.characters[index].species,
                             status: controller.characters[index].status,
                           ),
-                        ),
-                      );
-                    }),
+                        );
+                      }),
+                ),
               ),
             ),
           ],

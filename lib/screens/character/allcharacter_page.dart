@@ -29,28 +29,28 @@ class CharactersPage extends StatelessWidget {
               backgroundColor: Colors.white,
               floating: false,
               pinned: true,
-              expandedHeight: 300,
-              flexibleSpace: CharacterAppBar(),
+              expandedHeight: 340,
+              flexibleSpace: const CharacterAppBar(),
             ),
             SliverToBoxAdapter(
-              child: Padding(
-                padding: const EdgeInsets.symmetric(horizontal: 10),
-                child: Obx(
-                  () => GridView.builder(
-                      controller: controller.scrollController,
-                      itemCount: controller.characters.length,
-                      primary: false,
-                      shrinkWrap: true,
-                      gridDelegate:
-                          const SliverGridDelegateWithFixedCrossAxisCount(
-                              crossAxisCount: 2),
-                      itemBuilder: (context, index) {
-                        if (controller.isLoading.isTrue) {
-                          return const Center(
-                            child: CircularProgressIndicator(),
-                          );
-                        }
-                        return GestureDetector(
+              child: Obx(
+                () => GridView.builder(
+                    controller: controller.scrollController,
+                    itemCount: controller.characters.length,
+                    primary: false,
+                    shrinkWrap: true,
+                    gridDelegate:
+                        const SliverGridDelegateWithFixedCrossAxisCount(
+                            crossAxisCount: 2),
+                    itemBuilder: (context, index) {
+                      if (controller.isLoading.isTrue) {
+                        return const Center(
+                          child: CircularProgressIndicator(),
+                        );
+                      }
+                      return Padding(
+                        padding: const EdgeInsets.all(10.0),
+                        child: GestureDetector(
                           onTap: () {
                             Get.toNamed('/character_page',
                                 arguments: {'index': index});
@@ -68,9 +68,9 @@ class CharactersPage extends StatelessWidget {
                             species: controller.characters[index].species,
                             status: controller.characters[index].status,
                           ),
-                        );
-                      }),
-                ),
+                        ),
+                      );
+                    }),
               ),
             ),
           ],

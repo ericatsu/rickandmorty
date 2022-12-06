@@ -19,15 +19,14 @@ class CharacterAppBar extends StatelessWidget {
         style: GoogleFonts.firaSans(
           textStyle: const TextStyle(
             color: Colors.blue,
-            fontSize: 22,
+            fontSize: 20,
           ),
         ),
       ),
       background: Container(
         color: Colors.white,
         child: Image.asset(
-          'images/rbg.png',
-          height: height * 0.50,
+          'images/imgbg.png',
           fit: BoxFit.contain,
         ),
       ),

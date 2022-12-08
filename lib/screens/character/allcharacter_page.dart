@@ -1,13 +1,12 @@
 import 'package:flutter/material.dart';
-import 'package:fluttergraphql/widgets/character_appbar.dart';
-import 'package:fluttergraphql/widgets/character_card.dart';
 import 'package:fluttergraphql/widgets/circle_button.dart';
-import 'package:fluttergraphql/widgets/drawer_wigdet.dart';
-import 'package:fluttergraphql/widgets/menu.dart';
+import 'package:fluttergraphql/widgets/character/drawer_wigdet.dart';
 import 'package:get/get.dart';
-import 'package:google_fonts/google_fonts.dart';
 
 import '../../controller/character/allcharacters_controller.dart';
+import '../../widgets/character/character_appbar.dart';
+import '../../widgets/character/character_card.dart';
+import '../../widgets/character/menu.dart';
 
 class CharactersPage extends StatelessWidget {
   CharactersPage({super.key});
@@ -73,7 +72,6 @@ class CharactersPage extends StatelessWidget {
                     }),
               ),
             ),
-          ],
-        ));
+        ]));
   }
 }

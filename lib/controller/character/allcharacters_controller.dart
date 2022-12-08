@@ -5,7 +5,7 @@ import '../../model/character.dart';
 import '../../services/character_service.dart';
 
 class AllCharactersController extends GetxController {
-  final page = 1.obs;
+  final page = 0.obs;
   final isLoading = false.obs;
   final hasException = false.obs;
 

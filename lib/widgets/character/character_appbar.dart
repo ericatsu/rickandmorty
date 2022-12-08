@@ -1,8 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
 
-import 'circle_button.dart';
-
 class CharacterAppBar extends StatelessWidget {
   const CharacterAppBar({
     Key? key,

@@ -6,6 +6,7 @@ import 'package:fluttergraphql/screens/episode/episode.dart';
 // import 'package:fluttergraphql/screens/location/location.dart';
 import 'package:fluttergraphql/widgets/bottom_nav.dart';
 import 'package:get/get.dart';
+import 'package:get_cli/core/locales.g.dart';
 
 import 'screens/character/character.dart';
 import 'screens/character/allcharacter_page.dart';
@@ -23,18 +24,20 @@ class MyApp extends StatelessWidget {
   Widget build(BuildContext context) {
     return GetMaterialApp(
       debugShowCheckedModeBanner: false,
+      translationsKeys: AppTranslation.translations,
       initialRoute: '/',
       getPages: [
-        GetPage(name: '/', page: () => CharactersPage()),
-        GetPage(name: '/character_page', page: () => CharacterPage()),
-        GetPage(name: '/', page: () => LocationsPage()),
-        GetPage(name: '/location', page: () => LocationPage()),
-        GetPage(name: '/', page: () => EpisodesPage()),
-        GetPage(name: '/episode', page: () => EpisodePage()),
+        GetPage(name: '/', page: () => CharactersPage(), children: [
+          GetPage(name: '/character_page', page: () => CharacterPage()),
+        ]),
+        GetPage(name: '/', page: () => LocationsPage(), children: [
+          GetPage(name: '/location', page: () => LocationPage()),
+        ]),
+        GetPage(name: '/', page: () => EpisodesPage(), children: [
+          GetPage(name: '/episode', page: () => EpisodePage()),
+        ]),
       ],
       home: const BottomNav(),
     );
   }
 }
-
-

@@ -1,10 +1,10 @@
 import 'package:flutter/material.dart';
-import 'package:fluttergraphql/widgets/episode_top.dart';
-import 'package:fluttergraphql/widgets/season_shape.dart';
 import 'package:get/get.dart';
 
 import '../../controller/episode/episodes_controller.dart';
-import '../../widgets/episode_card.dart';
+import '../../widgets/episode/episode_card.dart';
+import '../../widgets/episode/episode_top.dart';
+import '../../widgets/episode/season_shape.dart';
 
 class EpisodesPage extends StatelessWidget {
   EpisodesPage({super.key});

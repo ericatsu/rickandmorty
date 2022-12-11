@@ -11,59 +11,28 @@ class CharacterAppBar extends StatelessWidget {
     final double height = MediaQuery.of(context).size.height;
     //final double width = MediaQuery.of(context).size.width;
 
-    return FlexibleSpaceBar(
-      title: Text(
-        'Characters',
-        style: GoogleFonts.firaSans(
-          textStyle: const TextStyle(
-            color: Colors.blue,
-            fontSize: 20,
-          ),
-        ),
-      ),
-      background: Container(
-        color: Colors.white,
-        child: Image.asset(
+    return Padding(
+      padding: const EdgeInsets.only(bottom: 25),
+      child: Stack(
+        // overflow: Overflow.visible,
+        alignment: Alignment.center,
+        children: [
+         Image.asset(
           'assets/images/imgbg.png',
           fit: BoxFit.contain,
+          width: double.infinity,
         ),
+        Text(
+              'Characters',
+              style: GoogleFonts.firaSans(
+                textStyle: const TextStyle(
+                  color: Colors.blue,
+                  fontSize: 20,
+                ),
+              ),
+            ),
+      ]
       ),
-      // padding: const EdgeInsets.only(top: 15, left: 20, right: 20),
-      // height: height * 0.38,
-      // width: double.infinity,
-      // decoration: const BoxDecoration(
-      //   borderRadius: BorderRadius.only(
-      //     bottomLeft: Radius.circular(17),
-      //     bottomRight: Radius.circular(17),
-      //   ),
-      // ),
-      // child: Column(
-      //   children: [
-      //     // Row(
-      //     //   mainAxisAlignment: MainAxisAlignment.spaceBetween,
-      //     //   crossAxisAlignment: CrossAxisAlignment.start,
-      //     //   children: [
-      //     //     // Builder(builder: (context) {
-      //     //     //   return GestureDetector(
-      //     //     //     onTap: () {
-      //     //     //       Scaffold.of(context).openDrawer();
-      //     //     //     },
-      //     //     //     child: Image.asset("images/menu.png", height: 45, width: 45),
-      //     //     //   );
-      //     //     // }),
-      //     //     // CircleButton(
-      //     //     //   icon: Icons.search,
-      //     //     //   onPressed: () {},
-      //     //     // ),
-      //     //   ],
-      //     // ),
-      //     Image.asset(
-      //       'images/bg.png',
-      //       height: height * 0.30,
-      //       fit: BoxFit.contain,
-      //     ),
-      //   ],
-      // ),
     );
   }
 }

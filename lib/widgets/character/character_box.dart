@@ -14,6 +14,8 @@ class CharacterBox extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    final double height = MediaQuery.of(context).size.height;
+
     return Padding(
       padding: const EdgeInsets.symmetric(horizontal: 10),
       child: Column(
@@ -28,16 +30,16 @@ class CharacterBox extends StatelessWidget {
             ),
           ),
           Container(
-            height: 70,
-            width: 100,
-            color: Colors.blue,
-            margin: const EdgeInsets.all(350),
-            padding: const EdgeInsets.all(30),
+            height: height * 0.4,
+            width: double.infinity,
+            margin: const EdgeInsets.all(5),
+            padding: const EdgeInsets.all(20),
            decoration: BoxDecoration(
             border: Border.all(color: Colors.white)
            ),
              child: Column(
-              crossAxisAlignment: CrossAxisAlignment.center,
+              crossAxisAlignment: CrossAxisAlignment.start,
+              mainAxisAlignment: MainAxisAlignment.spaceBetween,
               children: [
                 Text('Status :$status',
                 style: GoogleFonts.openSans(

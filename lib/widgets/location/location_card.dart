@@ -19,7 +19,7 @@ class LocationCard extends StatelessWidget {
               borderRadius: BorderRadius.circular(10),
               child: const Image(
                 fit: BoxFit.fill,
-                image: AssetImage('images/earth.jpg'),
+                image: AssetImage('assets/images/earth.jpg'),
               ),
              ),
              const SizedBox(

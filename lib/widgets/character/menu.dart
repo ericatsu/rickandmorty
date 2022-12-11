@@ -13,7 +13,7 @@ class Menu extends StatelessWidget {
                       onTap: () {
                         Scaffold.of(context).openDrawer();
                       },
-                      child: Image.asset("images/menu.png", height: 30, width: 30),
+                      child: Image.asset("assets/images/menu.png", height: 30, width: 30),
                     ),
                   );
                 }

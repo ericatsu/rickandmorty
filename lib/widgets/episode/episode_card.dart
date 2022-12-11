@@ -28,7 +28,7 @@ class EpisodeCard extends StatelessWidget {
                 fit: BoxFit.fill,
                 height: 100,
                 width: 80,
-                image: AssetImage('images/earth.jpg'),
+                image: AssetImage('assets/images/earth.jpg'),
               ),
             ),
             const SizedBox(width: 20,),

@@ -14,7 +14,7 @@ class EpisodeTop extends StatelessWidget {
           width: double.infinity,
           height: height * 0.38,
           child: Image.asset(
-            'images/pilot.jpg',
+            'assets/images/pilot.jpg',
             fit: BoxFit.fill,
           ),
         ),

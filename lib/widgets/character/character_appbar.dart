@@ -24,7 +24,7 @@ class CharacterAppBar extends StatelessWidget {
       background: Container(
         color: Colors.white,
         child: Image.asset(
-          'images/imgbg.png',
+          'assets/images/imgbg.png',
           fit: BoxFit.contain,
         ),
       ),

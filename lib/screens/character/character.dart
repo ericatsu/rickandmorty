@@ -43,9 +43,11 @@ class CharacterPage extends StatelessWidget {
               child: Column(
                 children: [
                   SizedBox(
-                   height: height * 0.40,
                    width: double.infinity,
-                   child: Image.network(character.image),
+                   child: Image.network(character.image,
+                   fit: BoxFit.fill,
+                   height: height * 0.40,
+                   ),
                   ),
                   CharacterBox(
                     name: character.name,

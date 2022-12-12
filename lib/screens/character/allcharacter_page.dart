@@ -4,7 +4,7 @@ import 'package:fluttergraphql/widgets/character/drawer_wigdet.dart';
 import 'package:get/get.dart';
 
 import '../../controller/character/allcharacters_controller.dart';
-import '../../widgets/character/character_appbar.dart';
+// import '../../widgets/character/character_appbar.dart';
 import '../../widgets/character/character_card.dart';
 import '../../widgets/character/menu.dart';
 
@@ -21,7 +21,7 @@ class CharactersPage extends StatelessWidget {
         appBar: AppBar(
           backgroundColor: Colors.white,
           elevation: 0,
-          leading: Menu(),
+          leading: const Menu(),
           actions: [CircleButton(icon: Icons.search, onPressed: () {})],
         ),
         body:

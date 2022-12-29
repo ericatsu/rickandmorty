@@ -13,8 +13,8 @@ class CircleButton extends StatelessWidget {
     return Padding(
       padding: const EdgeInsets.all(13.0),
       child: Container(
-        height: 35,
-        width: 50,
+        height: 30,
+        width: 45,
         decoration: const BoxDecoration(
           shape: BoxShape.rectangle,
           borderRadius: BorderRadius.horizontal(

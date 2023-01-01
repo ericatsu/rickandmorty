@@ -34,7 +34,7 @@ class EpisodesController extends GetxController {
     if (result.hasException) {
       hasException.value = true;
       isLoading.value = false;
-      print(result.exception);
+      //print(result.exception);
     }
 
     if (result.isNotLoading) {

@@ -33,11 +33,10 @@ class LocationsPage extends StatelessWidget {
                           }
                           return GestureDetector(
                             onTap: () {
-                              Get.toNamed('/location', arguments: {'index': index});
+                              Get.toNamed('/location',
+                                  arguments: {'index': index});
                             },
-                            
                             child: LocationCard(
-                              
                               name: controller.locations[index].name.toString(),
                               type: controller.locations[index].type.toString(),
                             ),

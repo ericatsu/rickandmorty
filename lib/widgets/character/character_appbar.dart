@@ -1,5 +1,4 @@
-import 'package:flutter/material.dart';
-import 'package:google_fonts/google_fonts.dart';
+import 'package:fluttergraphql/shared/exports.dart';
 
 class CharacterAppBar extends StatelessWidget {
   const CharacterAppBar({

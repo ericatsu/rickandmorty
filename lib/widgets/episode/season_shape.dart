@@ -1,4 +1,4 @@
-import 'package:flutter/material.dart';
+import 'package:fluttergraphql/shared/exports.dart';
 
 class SeasonChip extends StatelessWidget {
   const SeasonChip({super.key});

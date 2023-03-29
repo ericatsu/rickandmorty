@@ -1,9 +1,4 @@
-import 'package:flutter/material.dart';
-import 'package:fluttergraphql/controller/location/locations_controller.dart';
-import 'package:get/get.dart';
-
-import '../../widgets/location/location_appbar.dart';
-import '../../widgets/location/location_card.dart';
+import 'package:fluttergraphql/shared/exports.dart';
 
 class LocationsPage extends StatelessWidget {
   LocationsPage({super.key});

@@ -1,17 +1,4 @@
-import 'package:flutter/material.dart';
-import 'package:fluttergraphql/screens/episode/allepisodes.dart';
-import 'package:fluttergraphql/screens/episode/episode.dart';
-// import 'package:fluttergraphql/client/client.dart';
-// import 'package:fluttergraphql/screens/location/alllocations.dart';
-// import 'package:fluttergraphql/screens/location/location.dart';
-import 'package:fluttergraphql/widgets/bottom_nav.dart';
-import 'package:get/get.dart';
-import 'package:get_cli/core/locales.g.dart';
-
-import 'screens/character/character.dart';
-import 'screens/character/allcharacter_page.dart';
-import 'screens/location/alllocations.dart';
-import 'screens/location/location.dart';
+import 'package:fluttergraphql/shared/exports.dart';
 
 void main() async {
   runApp(const MyApp());
@@ -37,7 +24,7 @@ class MyApp extends StatelessWidget {
           GetPage(name: '/episode', page: () => EpisodePage()),
         ]),
       ],
-      home: const BottomNav(),
+      home: const SplashScreen(), 
     );
   }
 }

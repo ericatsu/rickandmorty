@@ -1,6 +1,4 @@
-import 'package:flutter/material.dart';
-
-import '../../model/drawer_model.dart';
+import 'package:fluttergraphql/shared/exports.dart';
 
 class DrawerWidget extends StatelessWidget {
   const DrawerWidget({Key? key}) : super(key: key);

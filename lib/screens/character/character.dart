@@ -1,8 +1,4 @@
-import 'package:flutter/material.dart';
-import 'package:fluttergraphql/widgets/character/character_box.dart';
-import 'package:get/get.dart';
-
-import '../../controller/character/character_controller.dart';
+import 'package:fluttergraphql/shared/exports.dart';
 
 class CharacterPage extends StatelessWidget {
   CharacterPage({super.key});

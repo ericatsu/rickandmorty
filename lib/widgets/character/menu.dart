@@ -1,4 +1,4 @@
-import 'package:flutter/material.dart';
+import 'package:fluttergraphql/shared/exports.dart';
 
 class Menu extends StatelessWidget {
   const Menu({super.key});

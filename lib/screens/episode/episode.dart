@@ -1,7 +1,4 @@
-import 'package:flutter/material.dart';
-import 'package:get/get.dart';
-
-import '../../controller/episode/episode_controller.dart';
+import 'package:fluttergraphql/shared/exports.dart';
 
 class EpisodePage extends StatelessWidget {
   EpisodePage({super.key});

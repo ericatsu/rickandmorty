@@ -1,7 +1,4 @@
-import 'package:flutter/material.dart';
-import 'package:google_fonts/google_fonts.dart';
-
-import '../circle_button.dart';
+import 'package:fluttergraphql/shared/exports.dart';
 
 class LocationAppBar extends StatelessWidget {
   const LocationAppBar({

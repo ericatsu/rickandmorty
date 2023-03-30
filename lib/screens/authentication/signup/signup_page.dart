@@ -1,5 +1,3 @@
-import 'package:fluttergraphql/screens/authentication/widgets/box_button.dart';
-import 'package:fluttergraphql/screens/authentication/widgets/elevated_field.dart';
 import 'package:fluttergraphql/shared/exports.dart';
 
 class SignUpPage extends StatefulWidget {

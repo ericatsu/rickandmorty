@@ -58,5 +58,8 @@ export 'package:fluttergraphql/widgets/location/location_appbar.dart';
 export 'package:fluttergraphql/widgets/location/location_card.dart';
 export 'package:fluttergraphql/screens/authentication/widgets/greetings.dart';
 
+export 'package:fluttergraphql/screens/authentication/widgets/box_button.dart';
+export 'package:fluttergraphql/screens/authentication/widgets/elevated_field.dart';
+
 
 

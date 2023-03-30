@@ -1,6 +1,8 @@
 //flutter
 export 'dart:async';
 export 'package:flutter/material.dart';
+export 'package:flutter/gestures.dart';
+
 
 //pub
 export 'package:get/get.dart';
@@ -9,6 +11,7 @@ export 'package:google_fonts/google_fonts.dart';
 export 'package:flutter_rating_bar/flutter_rating_bar.dart';
 export 'package:google_nav_bar/google_nav_bar.dart';
 
+export 'package:fluttergraphql/shared/constants.dart';
 
 
 //controller
@@ -30,6 +33,11 @@ export 'package:fluttergraphql/screens/episode/episode.dart';
 export 'package:fluttergraphql/screens/location/alllocations.dart';
 export 'package:fluttergraphql/screens/location/location.dart';
 export 'package:fluttergraphql/screens/splash.dart';
+export 'package:fluttergraphql/screens/authentication/signup/signup_page.dart';
+export 'package:fluttergraphql/screens/authentication/signin/signin_page.dart';
+export 'package:fluttergraphql/screens/authentication/widgets/topright_rich_text.dart';
+
+
 
 //widgets
 export 'package:fluttergraphql/widgets/bottom_nav.dart';
@@ -48,4 +56,7 @@ export 'package:fluttergraphql/widgets/episode/season_shape.dart';
 
 export 'package:fluttergraphql/widgets/location/location_appbar.dart';
 export 'package:fluttergraphql/widgets/location/location_card.dart';
+export 'package:fluttergraphql/screens/authentication/widgets/greetings.dart';
+
+
 

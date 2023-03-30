@@ -12,7 +12,7 @@ class _SplashScreenState extends State<SplashScreen> {
 
   void initState(){
     super.initState();
-    Timer(const Duration(seconds: 3), () => Get.to(const BottomNav()));
+    Timer(const Duration(seconds: 3), () => Get.to(const SignUpPage()));
   }
   @override
   Widget build(BuildContext context) {
@@ -23,7 +23,7 @@ class _SplashScreenState extends State<SplashScreen> {
         decoration: const BoxDecoration(
           color: Color(0xFF00AFCA),
         ),
-        child: Image.asset("assets/images/splash.png"),
+        child: Image.asset(Images.splash),
       ),
     );
   }

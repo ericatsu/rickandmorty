@@ -8,7 +8,6 @@ class CharactersPage extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     final double height = MediaQuery.of(context).size.height;
-    
     return Scaffold(
       drawer: const DrawerWidget(),
       body: NestedScrollView(

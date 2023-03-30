@@ -5,7 +5,7 @@ class Palette {
   static const Color kPrimaryLight = Color.fromARGB(255, 118, 175, 184);
   static Color black40 = const Color(0xFF200E32).withOpacity(.4);
   static Color black80 = const Color(0xFF200E32).withOpacity(.8);
-  static LinearGradient linecolor = LinearGradient(
+  static LinearGradient linecolor = const LinearGradient(
           colors: [Colors.teal, Colors.green],
           begin: Alignment.centerLeft,
           end: Alignment.centerRight,
@@ -19,4 +19,9 @@ Shader authColors = const LinearGradient(
 class Images {
   static const String imagesPath = 'assets/images/';
   static const String splash = '${imagesPath}splash.png';
+  static const String apple = '${imagesPath}apple-logo.png';
+  static const String github = '${imagesPath}github.png';
+  static const String rightarrow = '${imagesPath}right-arrow.png';
+  static const String google = '${imagesPath}search.png';
+  static const String twitter = '${imagesPath}twitter.png';
 }

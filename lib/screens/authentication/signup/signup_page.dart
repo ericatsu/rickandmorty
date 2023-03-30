@@ -1,3 +1,4 @@
+import 'package:fluttergraphql/screens/authentication/widgets/box_button.dart';
 import 'package:fluttergraphql/screens/authentication/widgets/elevated_field.dart';
 import 'package:fluttergraphql/shared/exports.dart';
 
@@ -51,7 +52,7 @@ class _SignUpPageState extends State<SignUpPage> {
                   child: Padding(
                     padding: const EdgeInsets.all(10.0),
                     child: Column(
-                      crossAxisAlignment: CrossAxisAlignment.stretch,
+                      crossAxisAlignment: CrossAxisAlignment.center,
                       children: [
                         const SizedBox(height: 16.0),
                         ElevatedTextFormField(
@@ -98,32 +99,84 @@ class _SignUpPageState extends State<SignUpPage> {
                           },
                         ),
                         const SizedBox(height: 16.0),
-                        SizedBox(
-                          width: 20,
-                          height: height * 0.05,
-                          child: TextButton(
-                            style: const ButtonStyle(
-                              backgroundColor:
-                                  MaterialStatePropertyAll(Colors.teal),
-                              overlayColor:
-                                  MaterialStatePropertyAll(Colors.white10),
-                            ),
-                            onPressed: () {
-                              if (_formKey.currentState?.validate() == true) {
-                                // Submit the form data
-                              }
-                            },
-                            child: const Text(
-                              'Submit',
-                              style: TextStyle(
-                                fontSize: 16,
-                                color: Colors.white,
+                        Container(
+                          height: height * 0.048,
+                          width: width * 0.28,
+                          decoration: BoxDecoration(
+                            borderRadius: BorderRadius.circular(50),
+                            color: Colors.teal,
+                            border: Border.all(color: Colors.teal),
+                          ),
+                          child: Material(
+                            color: Colors.transparent,
+                            child: InkWell(
+                              borderRadius: BorderRadius.circular(50),
+                              onTap: () {
+                                if (_formKey.currentState?.validate() == true) {
+                                  // Submit the form data
+                                }
+                              },
+                              child: const Align(
+                                alignment: Alignment.center,
+                                child: Padding(
+                                  padding: EdgeInsets.all(6),
+                                  child: Text(
+                                    'Submit',
+                                    style: TextStyle(
+                                        fontSize: 13,
+                                        color: Colors.white,
+                                        fontWeight: FontWeight.w500),
+                                  ),
+                                ),
                               ),
                             ),
                           ),
                         ),
                       ],
                     ),
+                  ),
+                ),
+                SizedBox(
+                  height: height * 0.045,
+                ),
+                const Align(
+                  alignment: Alignment.center,
+                  child: Text(
+                    'Or sign up with',
+                    style: TextStyle(
+                      fontSize: 13,
+                      fontWeight: FontWeight.bold,
+                    ),
+                  ),
+                ),
+                SizedBox(
+                  height: height * 0.02,
+                ),
+                Align(
+                  alignment: Alignment.center,
+                  child: SizedBox(
+                    height: height * 0.06,
+                    width: width * 0.8,
+                    child: Row(
+                        mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+                        children: [
+                          BoxButton(
+                            image: Images.google,
+                            onTap: () {},
+                          ),
+                          BoxButton(
+                            image: Images.twitter,
+                            onTap: () {},
+                          ),
+                          BoxButton(
+                            image: Images.apple,
+                            onTap: () {},
+                          ),
+                          BoxButton(
+                            image: Images.github,
+                            onTap: () {},
+                          ),
+                        ]),
                   ),
                 ),
               ],

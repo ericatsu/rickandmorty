@@ -16,27 +16,28 @@ class ElevatedTextFormField extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return Container(
-      decoration: BoxDecoration(
-        boxShadow: [
-          const BoxShadow(
-            blurRadius: 4,
-          ),
-        ],
-        borderRadius: BorderRadius.circular(28.0),
-      ),
+    return Material(
+      elevation: 10,
+      color: Colors.transparent,
+      borderOnForeground: false,
+      borderRadius: BorderRadius.circular(28),
+      shadowColor: const Color.fromARGB(255, 252, 251, 251),
       child: TextFormField(
         controller: controller,
         obscureText: obscureText,
+        obscuringCharacter: '*',
         decoration: InputDecoration(
+          hintStyle: TextStyle(
+            color: Colors.teal,
+          ),
           fillColor: const Color.fromARGB(255, 236, 236, 236),
           filled: true,
           labelText: label,
-          contentPadding: const EdgeInsets.symmetric(horizontal: 10, vertical: 4),
-          border:  OutlineInputBorder(
-            borderRadius: BorderRadius.circular(28),
-            borderSide: const BorderSide(style: BorderStyle.solid, color: Colors.grey)
-          ),
+          contentPadding:
+              const EdgeInsets.symmetric(horizontal: 10, vertical: 4),
+          border: OutlineInputBorder(
+              borderRadius: BorderRadius.circular(28),
+              borderSide: const BorderSide(color: Colors.grey)),
         ),
         validator: validator,
       ),

@@ -10,6 +10,8 @@ export 'package:get_cli/core/locales.g.dart';
 export 'package:google_fonts/google_fonts.dart';
 export 'package:flutter_rating_bar/flutter_rating_bar.dart';
 export 'package:google_nav_bar/google_nav_bar.dart';
+export 'package:firebase_core/firebase_core.dart';
+
 
 export 'package:fluttergraphql/shared/constants.dart';
 

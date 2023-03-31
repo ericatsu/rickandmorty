@@ -15,12 +15,12 @@ class TopRightRichText extends StatelessWidget {
     return Align(
       alignment: Alignment.centerRight,
       child: Container(
-        decoration: const BoxDecoration(
+        decoration:  const BoxDecoration(
           border: Border(bottom: BorderSide(color: Colors.teal, width: 1.2)),
         ),
         child: RichText(
           text: TextSpan(
-            text: '$normal?',
+            text: '$normal? ',
             style: const TextStyle(
                 fontSize: 12.5,
                 fontWeight: FontWeight.w500,

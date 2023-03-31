@@ -25,11 +25,9 @@ class ElevatedTextFormField extends StatelessWidget {
       child: TextFormField(
         controller: controller,
         obscureText: obscureText,
+        cursorColor: Colors.teal,
         obscuringCharacter: '*',
         decoration: InputDecoration(
-          hintStyle: TextStyle(
-            color: Colors.teal,
-          ),
           fillColor: const Color.fromARGB(255, 236, 236, 236),
           filled: true,
           labelText: label,
@@ -39,7 +37,7 @@ class ElevatedTextFormField extends StatelessWidget {
               borderRadius: BorderRadius.circular(28),
               borderSide: const BorderSide(color: Colors.grey)),
         ),
-        validator: validator,
+        validator: validator, 
       ),
     );
   }

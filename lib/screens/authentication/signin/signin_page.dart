@@ -38,7 +38,7 @@ class _SignInPageState extends State<SignInPage> {
                   },
                 ),
                 SizedBox(
-                  height: height * 0.18,
+                  height: height * 0.2,
                 ),
                 const Greetings(
                   greeting: 'Glad to see you back',
@@ -111,7 +111,7 @@ class _SignInPageState extends State<SignInPage> {
                   ),
                 ),
                 SizedBox(
-                  height: height * 0.045,
+                  height: height * 0.1,
                 ),
                 const Align(
                   alignment: Alignment.center,
@@ -124,7 +124,7 @@ class _SignInPageState extends State<SignInPage> {
                   ),
                 ),
                 SizedBox(
-                  height: height * 0.02,
+                  height: height * 0.025,
                 ),
                 Align(
                   alignment: Alignment.center,

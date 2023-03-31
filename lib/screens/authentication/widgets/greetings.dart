@@ -8,15 +8,15 @@ class Greetings extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     final double height = MediaQuery.of(context).size.height;
-    final double width = MediaQuery.of(context).size.width;
+    //final double width = MediaQuery.of(context).size.width;
 
     return Column(
       crossAxisAlignment: CrossAxisAlignment.start,
       children: [
         Text(
           type,
-          style:  TextStyle(
-            fontSize: 23,
+          style: TextStyle(
+            fontSize: 24,
             foreground: Paint()..shader = authColors,
             fontWeight: FontWeight.bold,
           ),

@@ -101,9 +101,10 @@ class _SignUpPageState extends State<SignUpPage> {
                           height: height * 0.048,
                           width: width * 0.28,
                           decoration: BoxDecoration(
+                            gradient: Palette.linecolor,
                             borderRadius: BorderRadius.circular(50),
-                            color: Colors.teal,
                             border: Border.all(color: Colors.teal),
+                            
                           ),
                           child: Material(
                             color: Colors.transparent,

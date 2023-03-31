@@ -13,8 +13,8 @@ class Palette {
 }
 
 Shader authColors = const LinearGradient(
-  colors: <Color>[Color.fromARGB(255, 0, 129, 116), Color.fromARGB(255, 157, 240, 160)],
-).createShader(const Rect.fromLTWH(0.0, 0.0, 200.0, 70.0));
+  colors: <Color>[Color.fromARGB(255, 0, 129, 116), Color.fromARGB(255, 177, 248, 179)],
+).createShader(const Rect.fromLTWH(200.0, 0.0, 200.0, 150.0));
 
 class Images {
   static const String imagesPath = 'assets/images/';

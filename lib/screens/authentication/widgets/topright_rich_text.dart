@@ -22,14 +22,14 @@ class TopRightRichText extends StatelessWidget {
           text: TextSpan(
             text: '$normal? ',
             style: const TextStyle(
-                fontSize: 12.5,
+                fontSize: 13,
                 fontWeight: FontWeight.w500,
                 color: Colors.black),
             children: [
               TextSpan(
                   text: link,
                   style: const TextStyle(
-                      fontSize: 12.5,
+                      fontSize: 13,
                       fontWeight: FontWeight.bold,
                       color: Colors.teal),
                   recognizer: TapGestureRecognizer()..onTap = onTap),

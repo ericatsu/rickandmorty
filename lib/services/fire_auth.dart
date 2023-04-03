@@ -32,7 +32,7 @@ class FireAuth {
     return user;
   }
 
-  // For signing in an user (have already registered)
+  // Already registered
   static Future<User?> signInUsingEmailPassword({
     required String email,
     required String password,

@@ -7,6 +7,7 @@ class ElevatedTextFormField extends StatelessWidget {
     this.controller,
     this.obscureText = false,
     this.validator,
+    focusNode,
   }) : super(key: key);
 
   final String label;

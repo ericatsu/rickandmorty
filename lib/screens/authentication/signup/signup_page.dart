@@ -1,4 +1,5 @@
 import 'package:fluttergraphql/shared/exports.dart';
+import 'package:fluttergraphql/shared/vadilator.dart';
 
 class SignUpPage extends StatefulWidget {
   const SignUpPage({super.key});
@@ -8,11 +9,17 @@ class SignUpPage extends StatefulWidget {
 }
 
 class _SignUpPageState extends State<SignUpPage> {
-  final _formKey = GlobalKey<FormState>();
+  final _registerFormKey = GlobalKey<FormState>();
   final _nameController = TextEditingController();
   final _emailController = TextEditingController();
   final _passwordController = TextEditingController();
   final _confirmPasswordController = TextEditingController();
+
+  final _focusName = FocusNode();
+  final _focusEmail = FocusNode();
+  final _focusPassword = FocusNode();
+
+  bool _isProcessing = false;
 
   @override
   Widget build(BuildContext context) {
@@ -47,7 +54,7 @@ class _SignUpPageState extends State<SignUpPage> {
                   type: 'Sign Up',
                 ),
                 Form(
-                  key: _formKey,
+                  key: _registerFormKey,
                   child: Padding(
                     padding: const EdgeInsets.all(10.0),
                     child: Column(
@@ -57,56 +64,39 @@ class _SignUpPageState extends State<SignUpPage> {
                         ElevatedTextFormField(
                           label: 'Name',
                           controller: _nameController,
-                          validator: (value) {
-                            if (value == null || value.isEmpty) {
-                              return 'Please enter your name here';
-                            }
-                            return null;
-                          },
+                           focusNode: _focusName,
+                          validator: (value) => Validator.validateName(
+                            name: value,
+                          ),
                         ),
                         const SizedBox(height: 16.0),
                         ElevatedTextFormField(
                           label: 'Email',
                           controller: _emailController,
-                          validator: (value) {
-                            if (value == null || value.isEmpty) {
-                              return 'Please enter your email address';
-                            }
-                            if (!value.contains('@')) {
-                              return 'Please enter a valid email address';
-                            }
-                            return null;
-                          },
+                          focusNode: _focusEmail,
+                          validator: (value) => Validator.validateEmail(
+                            email: value,
+                          ),
                         ),
                         const SizedBox(height: 16.0),
                         ElevatedTextFormField(
                           label: 'Password',
                           obscureText: true,
                           controller: _passwordController,
-                          validator: (value) {
-                            if (value == null || value.isEmpty) {
-                              return 'Please enter your password';
-                            }
-                            if (value.length < 6) {
-                              return 'Your password must be at least 6 characters long';
-                            }
-                            return null;
-                          },
+                          focusNode: _focusPassword,
+                          validator: (value) => Validator.validatePassword(
+                            password: value,
+                          ),
                         ),
                         const SizedBox(height: 16.0),
                         ElevatedTextFormField(
                           label: 'Confirm Password',
                           obscureText: true,
                           controller: _confirmPasswordController,
-                          validator: (value) {
-                            if (value == null || value.isEmpty) {
-                              return 'Please confirm your password';
-                            }
-                            if (value != _passwordController.text) {
-                              return 'Your password and confirmation do not match';
-                            }
-                            return null;
-                          },
+                          focusNode: _focusPassword,
+                          validator: (value) => Validator.validatePassword(
+                            password: value,
+                          ),
                         ),
                         const SizedBox(height: 16.0),
                         Container(
@@ -123,7 +113,7 @@ class _SignUpPageState extends State<SignUpPage> {
                             child: InkWell(
                               borderRadius: BorderRadius.circular(50),
                               onTap: () {
-                                if (_formKey.currentState?.validate() == true) {
+                                if (_registerFormKey.currentState?.validate() == true) {
                                   // Submit the form data
                                 }
                               },

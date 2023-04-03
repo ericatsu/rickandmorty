@@ -9,6 +9,7 @@ class SignUpPage extends StatefulWidget {
 
 class _SignUpPageState extends State<SignUpPage> {
   final _formKey = GlobalKey<FormState>();
+  final _nameController = TextEditingController();
   final _emailController = TextEditingController();
   final _passwordController = TextEditingController();
   final _confirmPasswordController = TextEditingController();
@@ -39,7 +40,7 @@ class _SignUpPageState extends State<SignUpPage> {
                   },
                 ),
                 SizedBox(
-                  height: height * 0.18,
+                  height: height * 0.14,
                 ),
                 const Greetings(
                   greeting: 'Welcome',
@@ -52,6 +53,17 @@ class _SignUpPageState extends State<SignUpPage> {
                     child: Column(
                       crossAxisAlignment: CrossAxisAlignment.center,
                       children: [
+                        const SizedBox(height: 16.0),
+                        ElevatedTextFormField(
+                          label: 'Name',
+                          controller: _nameController,
+                          validator: (value) {
+                            if (value == null || value.isEmpty) {
+                              return 'Please enter your name here';
+                            }
+                            return null;
+                          },
+                        ),
                         const SizedBox(height: 16.0),
                         ElevatedTextFormField(
                           label: 'Email',
@@ -136,7 +148,7 @@ class _SignUpPageState extends State<SignUpPage> {
                   ),
                 ),
                 SizedBox(
-                  height: height * 0.045,
+                  height: height * 0.035,
                 ),
                 const Align(
                   alignment: Alignment.center,
@@ -149,7 +161,7 @@ class _SignUpPageState extends State<SignUpPage> {
                   ),
                 ),
                 SizedBox(
-                  height: height * 0.02,
+                  height: height * 0.015,
                 ),
                 Align(
                   alignment: Alignment.center,

@@ -47,7 +47,7 @@ class _SignUpPageState extends State<SignUpPage> {
                   },
                 ),
                 SizedBox(
-                  height: height * 0.14,
+                  height: height * 0.12,
                 ),
                 const Greetings(
                   greeting: 'Welcome',
@@ -60,7 +60,7 @@ class _SignUpPageState extends State<SignUpPage> {
                     child: Column(
                       crossAxisAlignment: CrossAxisAlignment.center,
                       children: [
-                        const SizedBox(height: 16.0),
+                        const SizedBox(height: 12.0),
                         ElevatedTextFormField(
                           label: 'Name',
                           controller: _nameController,
@@ -138,7 +138,7 @@ class _SignUpPageState extends State<SignUpPage> {
                   ),
                 ),
                 SizedBox(
-                  height: height * 0.035,
+                  height: height * 0.032,
                 ),
                 const Align(
                   alignment: Alignment.center,
@@ -151,7 +151,7 @@ class _SignUpPageState extends State<SignUpPage> {
                   ),
                 ),
                 SizedBox(
-                  height: height * 0.015,
+                  height: height * 0.012,
                 ),
                 Align(
                   alignment: Alignment.center,

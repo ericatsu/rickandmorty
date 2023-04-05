@@ -1,8 +1,9 @@
+import 'package:fluttergraphql/controller/authentication/auth_repository.dart';
 import 'package:fluttergraphql/shared/exports.dart';
 
-Future main() async {
+void main()  {
   WidgetsFlutterBinding.ensureInitialized();
-  await Firebase.initializeApp();
+  Firebase.initializeApp().then((value) => Get.put(AuthenticationRepository()));
   
   runApp(const MyApp());
 }

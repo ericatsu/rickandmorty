@@ -1,3 +1,4 @@
+import 'package:fluttergraphql/controller/authentication/signup_controller.dart';
 import 'package:fluttergraphql/shared/exports.dart';
 import 'package:fluttergraphql/shared/vadilator.dart';
 
@@ -10,10 +11,7 @@ class SignUpPage extends StatefulWidget {
 
 class _SignUpPageState extends State<SignUpPage> {
   final _registerFormKey = GlobalKey<FormState>();
-  final _nameController = TextEditingController();
-  final _emailController = TextEditingController();
-  final _passwordController = TextEditingController();
-  final _confirmPasswordController = TextEditingController();
+  final controller = Get.put(SignUpController());
 
   final _focusName = FocusNode();
   final _focusEmail = FocusNode();
@@ -63,7 +61,7 @@ class _SignUpPageState extends State<SignUpPage> {
                         const SizedBox(height: 12.0),
                         ElevatedTextFormField(
                           label: 'Name',
-                          controller: _nameController,
+                          controller: controller.fullName,
                            focusNode: _focusName,
                           validator: (value) => Validator.validateName(
                             name: value,
@@ -72,7 +70,7 @@ class _SignUpPageState extends State<SignUpPage> {
                         const SizedBox(height: 16.0),
                         ElevatedTextFormField(
                           label: 'Email',
-                          controller: _emailController,
+                          controller: controller.email,
                           focusNode: _focusEmail,
                           validator: (value) => Validator.validateEmail(
                             email: value,
@@ -82,7 +80,7 @@ class _SignUpPageState extends State<SignUpPage> {
                         ElevatedTextFormField(
                           label: 'Password',
                           obscureText: true,
-                          controller: _passwordController,
+                          controller: controller.password,
                           focusNode: _focusPassword,
                           validator: (value) => Validator.validatePassword(
                             password: value,
@@ -92,7 +90,7 @@ class _SignUpPageState extends State<SignUpPage> {
                         ElevatedTextFormField(
                           label: 'Confirm Password',
                           obscureText: true,
-                          controller: _confirmPasswordController,
+                          controller: controller.password,
                           focusNode: _focusPassword,
                           validator: (value) => Validator.validatePassword(
                             password: value,
@@ -113,8 +111,8 @@ class _SignUpPageState extends State<SignUpPage> {
                             child: InkWell(
                               borderRadius: BorderRadius.circular(50),
                               onTap: () {
-                                if (_registerFormKey.currentState?.validate() == true) {
-                                  // Submit the form data
+                                if (_registerFormKey.currentState!.validate()) {
+                                  SignUpController.instance.registerUser(controller.email.text.trim(), controller.password.text.trim());
                                 }
                               },
                               child: const Align(

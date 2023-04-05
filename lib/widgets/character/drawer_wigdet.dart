@@ -1,3 +1,4 @@
+import 'package:fluttergraphql/controller/authentication/auth_repository.dart';
 import 'package:fluttergraphql/shared/exports.dart';
 
 class DrawerWidget extends StatelessWidget {
@@ -88,9 +89,14 @@ class DrawerWidget extends StatelessWidget {
   Widget profileWidget() {
     return Row(
       children: [
-        const CircleAvatar(
-          radius: 40,
-          backgroundImage: AssetImage("images/splash.png"),
+        InkWell(
+          onTap: () {
+            AuthenticationRepository.instance.logout();
+          },
+          child: const CircleAvatar(
+            radius: 40,
+            backgroundImage: AssetImage("images/splash.png"),
+          ),
         ),
         const SizedBox(
           width: 20,

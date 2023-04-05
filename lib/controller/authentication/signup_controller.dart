@@ -1,3 +1,4 @@
+import 'package:fluttergraphql/controller/authentication/auth_repository.dart';
 import 'package:fluttergraphql/shared/exports.dart';
 
 class SignUpController extends GetxController {
@@ -9,6 +10,6 @@ class SignUpController extends GetxController {
   final phoneNo = TextEditingController();
 
   void registerUser(String email, String password) {
-    
+    AuthenticationRepository.instance.createUserWithEmailAndPassword(email, password);
   }
 }

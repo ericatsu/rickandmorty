@@ -10,6 +10,19 @@ class SignUpController extends GetxController {
   final phoneNo = TextEditingController();
 
   void registerUser(String email, String password) {
-    AuthenticationRepository.instance.createUserWithEmailAndPassword(email, password);
+    AuthenticationRepository.instance
+        .createUserWithEmailAndPassword(email, password);
+  }
+}
+
+class SignInController extends GetxController {
+  static SignInController get instance => Get.find();
+
+  final email = TextEditingController();
+  final password = TextEditingController();
+
+  void signInUser(String email, String password) {
+    AuthenticationRepository.instance
+        .loginWithEmailAndPassword(email, password);
   }
 }

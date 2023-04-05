@@ -1,4 +1,5 @@
-import 'package:fluttergraphql/controller/authentication/signup_controller.dart';
+import 'package:fluttergraphql/controller/authentication/auth_repository.dart';
+import 'package:fluttergraphql/controller/authentication/user_controller.dart';
 import 'package:fluttergraphql/shared/exports.dart';
 import 'package:fluttergraphql/shared/vadilator.dart';
 
@@ -16,8 +17,6 @@ class _SignUpPageState extends State<SignUpPage> {
   final _focusName = FocusNode();
   final _focusEmail = FocusNode();
   final _focusPassword = FocusNode();
-
-  bool _isProcessing = false;
 
   @override
   Widget build(BuildContext context) {
@@ -112,6 +111,7 @@ class _SignUpPageState extends State<SignUpPage> {
                               borderRadius: BorderRadius.circular(50),
                               onTap: () {
                                 if (_registerFormKey.currentState!.validate()) {
+                                  Get.put(AuthenticationRepository());
                                   SignUpController.instance.registerUser(controller.email.text.trim(), controller.password.text.trim());
                                 }
                               },

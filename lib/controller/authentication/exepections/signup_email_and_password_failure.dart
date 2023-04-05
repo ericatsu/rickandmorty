@@ -26,3 +26,29 @@ class SignUpWithEmailAndPasswordFailure {
     }
   }
 }
+
+class LoginWithEmailAndPasswordFailure {
+  final String message;
+
+  const LoginWithEmailAndPasswordFailure(
+      [this.message = "An Unknown error occured"]);
+
+  factory LoginWithEmailAndPasswordFailure.code(String code) {
+    switch (code) {
+      case 'invalid-email':
+        return const LoginWithEmailAndPasswordFailure(
+            'Email is not valid or badly formatted');
+      case 'email-not-found':
+        return const LoginWithEmailAndPasswordFailure(
+            'Email can not be found');
+      case 'operation-not-allowed':
+        return const LoginWithEmailAndPasswordFailure(
+            'Operation not allowed, Please contact support');
+      case 'user-disabled':
+        return const LoginWithEmailAndPasswordFailure(
+            'This user has been disabled. Please contact support for help');
+      default:
+        return const LoginWithEmailAndPasswordFailure();
+    }
+  }
+}

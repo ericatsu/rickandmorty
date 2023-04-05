@@ -1,4 +1,6 @@
+import 'package:fluttergraphql/controller/authentication/user_controller.dart';
 import 'package:fluttergraphql/shared/exports.dart';
+import 'package:fluttergraphql/shared/vadilator.dart';
 
 class SignInPage extends StatefulWidget {
   const SignInPage({super.key});
@@ -8,14 +10,8 @@ class SignInPage extends StatefulWidget {
 }
 
 class _SignInPageState extends State<SignInPage> {
-  Future<FirebaseApp> _initializeFirebase() async {
-    FirebaseApp firebaseApp = await Firebase.initializeApp();
-    return firebaseApp;
-  }
-
   final _formKey = GlobalKey<FormState>();
-  final _emailController = TextEditingController();
-  final _passwordController = TextEditingController();
+  final controller = Get.put(SignInController());
 
   @override
   Widget build(BuildContext context) {
@@ -49,83 +45,64 @@ class _SignInPageState extends State<SignInPage> {
                   greeting: 'Glad to see you back',
                   type: 'Login',
                 ),
-                FutureBuilder(
-                    future: _initializeFirebase(),
-                    builder: (context, snapshot) {
-                      if (snapshot.connectionState == ConnectionState.done) {
-                        return Form(
-                          key: _formKey,
-                          child: Padding(
-                            padding: const EdgeInsets.all(10.0),
-                            child: Column(
-                              crossAxisAlignment: CrossAxisAlignment.center,
-                              children: [
-                                const SizedBox(height: 16.0),
-                                ElevatedTextFormField(
-                                  label: 'Email',
-                                  controller: _emailController,
-                                  validator: (value) {
-                                    if (value == null || value.isEmpty) {
-                                      return 'Please enter your email address';
-                                    }
-                                    if (!value.contains('@')) {
-                                      return 'Please enter a valid email address';
-                                    }
-                                    return null;
-                                  },
-                                ),
-                                const SizedBox(height: 16.0),
-                                ElevatedTextFormField(
-                                  label: 'Password',
-                                  obscureText: true,
-                                  controller: _passwordController,
-                                  validator: (value) {
-                                    if (value == null || value.isEmpty) {
-                                      return 'Please enter your password';
-                                    }
-                                    if (value.length < 6) {
-                                      return 'Your password must be at least 6 characters long';
-                                    }
-                                    return null;
-                                  },
-                                ),
-                                SizedBox(
-                                  height: height * 0.045,
-                                ),
-                                SizedBox(
-                                  height: height * 0.06,
-                                  width: width * 0.8,
-                                  child: Row(
-                                    mainAxisAlignment:
-                                        MainAxisAlignment.spaceBetween,
-                                    children: [
-                                      InkWell(
-                                        onTap: () {},
-                                        child: const Text(
-                                          'Forgot Password?',
-                                          style: TextStyle(
-                                            fontSize: 13,
-                                            fontWeight: FontWeight.bold,
-                                          ),
-                                        ),
-                                      ),
-                                      BoxButton(
-                                        image: Images.rightarrow,
-                                        onTap: () {},
-                                      ),
-                                    ],
-                                  ),
-                                )
-                              ],
-                            ),
+                Form(
+                  key: _formKey,
+                  child: Padding(
+                    padding: const EdgeInsets.all(10.0),
+                    child: Column(
+                      crossAxisAlignment: CrossAxisAlignment.center,
+                      children: [
+                        const SizedBox(height: 16.0),
+                        ElevatedTextFormField(
+                          label: 'Email',
+                          controller: controller.email,
+                          validator: (value) => Validator.validateEmail(
+                            email: value,
                           ),
-                        );
-                      } else {
-                        return const Center(
-                          child: CircularProgressIndicator(),
-                        );
-                      }
-                    }),
+                        ),
+                        const SizedBox(height: 16.0),
+                        ElevatedTextFormField(
+                          label: 'Password',
+                          obscureText: true,
+                          controller: controller.password,
+                          validator: (value) => Validator.validatePassword(
+                            password: value,
+                          ),
+                        ),
+                        SizedBox(
+                          height: height * 0.045,
+                        ),
+                        SizedBox(
+                          height: height * 0.06,
+                          width: width * 0.8,
+                          child: Row(
+                            mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                            children: [
+                              InkWell(
+                                onTap: () {},
+                                child: const Text(
+                                  'Forgot Password?',
+                                  style: TextStyle(
+                                    fontSize: 13,
+                                    fontWeight: FontWeight.bold,
+                                  ),
+                                ),
+                              ),
+                              BoxButton(
+                                image: Images.rightarrow,
+                                onTap: () {
+                                  if (_formKey.currentState!.validate()) {
+                                    SignInController.instance.signInUser(controller.email.text.trim(), controller.password.text.trim());
+                                  }
+                                },
+                              ),
+                            ],
+                          ),
+                        )
+                      ],
+                    ),
+                  ),
+                ),
                 SizedBox(
                   height: height * 0.1,
                 ),
@@ -147,12 +124,7 @@ class _SignInPageState extends State<SignInPage> {
                   child: SizedBox(
                     height: height * 0.06,
                     width: width * 0.8,
-                    child: FutureBuilder(
-                        future: _initializeFirebase(),
-                        builder: (context, snapshot) {
-                          if (snapshot.connectionState ==
-                              ConnectionState.done) {
-                            return Row(
+                    child: Row(
                                 mainAxisAlignment:
                                     MainAxisAlignment.spaceEvenly,
                                 children: [
@@ -172,13 +144,7 @@ class _SignInPageState extends State<SignInPage> {
                                     image: Images.github,
                                     onTap: () {},
                                   ),
-                                ]);
-                          } else {
-                            return const Center(
-                              child: CircularProgressIndicator(),
-                            );
-                          }
-                        }),
+                                ])
                   ),
                 ),
               ],

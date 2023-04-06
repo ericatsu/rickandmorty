@@ -1,5 +1,4 @@
-import 'package:flutter/cupertino.dart';
-import 'package:get/get.dart';
+import 'package:rickAndmorty/shared/exports.dart';
 
 import '../../model/character.dart';
 import '../../services/character_service.dart';
@@ -38,6 +37,9 @@ class AllCharactersController extends GetxController {
       hasException.value = true;
       isLoading.value = false;
       print(result.exception);
+      AlertDialog(
+        content: Text(result.hasException.toString()),
+      );
     }
 
     if (result.isNotLoading) {

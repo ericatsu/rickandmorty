@@ -1,6 +1,5 @@
 import 'package:flutter/cupertino.dart';
 import 'package:rickAndmorty/shared/exports.dart';
-import 'package:rickAndmorty/shared/vadilator.dart';
 
 class ForgetPassword extends StatefulWidget {
   const ForgetPassword({super.key});
@@ -22,13 +21,9 @@ class _ForgetPasswordState extends State<ForgetPassword> {
     try {
       await FirebaseAuth.instance
           .sendPasswordResetEmail(email: _emailController.text.trim());
-      showDialog(
-          context: context,
-          builder: (context) {
-            return AlertDialog(
+       const AlertDialog(
               content: Text('Password reset link sent! Check your email'),
             );
-          });
     } on FirebaseAuthException catch (e) {
       print(e);
       showDialog(

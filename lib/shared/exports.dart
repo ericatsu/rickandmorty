@@ -4,6 +4,7 @@ export 'package:flutter/material.dart';
 export 'package:flutter/gestures.dart';
 
 
+
 //pub
 export 'package:get/get.dart';
 export 'package:get_cli/core/locales.g.dart';
@@ -14,7 +15,10 @@ export 'package:firebase_auth/firebase_auth.dart';
 
 
 
+
 export 'package:rickAndmorty/shared/constants.dart';
+export 'package:rickAndmorty/shared/vadilator.dart';
+export 'package:rickAndmorty/screens/authentication/forget_password.dart';
 
 
 //controller
@@ -29,6 +33,7 @@ export 'package:rickAndmorty/controller/location/location_controller.dart';
 export 'package:rickAndmorty/model/drawer_model.dart';
 
 //screens
+export 'package:rickAndmorty/screens/authentication/main_page.dart';
 export 'package:rickAndmorty/screens/character/allcharacter_page.dart';
 export 'package:rickAndmorty/screens/character/character.dart';
 export 'package:rickAndmorty/screens/episode/allepisodes.dart';

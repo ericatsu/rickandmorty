@@ -1,6 +1,4 @@
-import 'package:rickAndmorty/screens/authentication/forget_password.dart';
 import 'package:rickAndmorty/shared/exports.dart';
-import 'package:rickAndmorty/shared/vadilator.dart';
 
 class SignInPage extends StatefulWidget {
   const SignInPage({super.key});

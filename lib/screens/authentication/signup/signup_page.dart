@@ -1,5 +1,4 @@
 import 'package:rickAndmorty/shared/exports.dart';
-import 'package:rickAndmorty/shared/vadilator.dart';
 
 class SignUpPage extends StatefulWidget {
   const SignUpPage({super.key});

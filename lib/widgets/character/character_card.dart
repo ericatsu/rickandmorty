@@ -24,7 +24,7 @@ class CharacterCard extends StatelessWidget {
         ClipRRect(
           borderRadius: BorderRadius.circular(10),
           child: Container( child: img)),
-        Spacer(),
+        const Spacer(),
         Text(
           name,
           textAlign: TextAlign.center,
@@ -48,8 +48,8 @@ class CharacterCard extends StatelessWidget {
                 ),
               ),
             ),
-            Text(','),
-            SizedBox(
+            const Text(','),
+            const SizedBox(
               width: 5,
             ),
             Text(
@@ -64,7 +64,7 @@ class CharacterCard extends StatelessWidget {
             ),
           ],
         ),
-        Spacer()
+        const Spacer()
       ],
     );
   }

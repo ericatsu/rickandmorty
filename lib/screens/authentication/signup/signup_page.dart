@@ -15,10 +15,21 @@ class _SignUpPageState extends State<SignUpPage> {
   final _confirmpasswordController = TextEditingController();
 
   Future signUp() async {
-    if (passwordConfirmed()) {
-      await FirebaseAuth.instance.createUserWithEmailAndPassword(
-          email: _emailController.text.trim(),
-          password: _passwordController.text.trim());
+    try {
+      if (passwordConfirmed()) {
+        await FirebaseAuth.instance.createUserWithEmailAndPassword(
+            email: _emailController.text.trim(),
+            password: _passwordController.text.trim());
+            Get.to(const BottomNav());
+      }
+    } catch (e) {
+      showDialog(
+          context: context,
+          builder: (context) {
+            return AlertDialog(
+              content: Text(e.toString()),
+            );
+          });
     }
   }
 

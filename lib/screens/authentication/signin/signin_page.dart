@@ -1,3 +1,4 @@
+import 'package:rickAndmorty/screens/authentication/forget_password.dart';
 import 'package:rickAndmorty/shared/exports.dart';
 import 'package:rickAndmorty/shared/vadilator.dart';
 
@@ -94,7 +95,9 @@ class _SignInPageState extends State<SignInPage> {
                               mainAxisAlignment: MainAxisAlignment.spaceBetween,
                               children: [
                                 InkWell(
-                                  onTap: () {},
+                                  onTap: () {
+                                    Get.to(const ForgetPassword());
+                                  },
                                   child: const Text(
                                     'Forgot Password?',
                                     style: TextStyle(

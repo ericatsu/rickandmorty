@@ -20,13 +20,31 @@ class CharactersPage extends StatelessWidget {
             elevation: 0,
             flexibleSpace: const CharacterAppBar(),
           ),
+          SliverAppBar(
+            automaticallyImplyLeading: false,
+            backgroundColor: Theme.of(context).scaffoldBackgroundColor,
+            elevation: 0,
+            pinned: true,
+            toolbarHeight: height * 0.02,
+            flexibleSpace: const Padding(
+              padding: EdgeInsets.all(8.0),
+              child: Text(
+                'Characters',
+                style: TextStyle(
+                    fontSize: 22,
+                    color: Colors.teal,
+                    fontWeight: FontWeight.w500),
+              ),
+            ),
+          ),
           Obx(
             () => SliverPadding(
               padding: const EdgeInsets.symmetric(horizontal: 20),
               sliver: SliverGrid.builder(
                 itemCount: controller.characters.length,
                 gridDelegate: const SliverGridDelegateWithFixedCrossAxisCount(
-                    crossAxisSpacing: 20, crossAxisCount: 2),
+                    crossAxisSpacing: 10, crossAxisCount: 2,
+                ),
                 itemBuilder: (context, index) {
                   if (controller.isLoading.isTrue) {
                     return const Center(
@@ -34,24 +52,25 @@ class CharactersPage extends StatelessWidget {
                     );
                   }
                   return Padding(
-                    padding: const EdgeInsets.symmetric(horizontal: 10),
+                    padding: const EdgeInsets.symmetric(horizontal: 12),
                     child: GestureDetector(
                       onTap: () {
                         Get.toNamed('/character_page',
                             arguments: {'index': index});
                       },
-                      child: CharacterCard(
-                        img: Image(
-                          image:
-                              NetworkImage(controller.characters[index].image),
-                          alignment: Alignment.center,
-                          height: height * 0.14,
-                          // width: width * 0.2,
-                          fit: BoxFit.fill,
+                      child: Padding(
+                        padding: const EdgeInsets.all(3.0),
+                        child: CharacterCard(
+                          img: Image(
+                            image:
+                                NetworkImage(controller.characters[index].image),
+                            alignment: Alignment.center,
+                            fit: BoxFit.fill,
+                          ),
+                          name: controller.characters[index].name,
+                          species: controller.characters[index].species,
+                          status: controller.characters[index].status,
                         ),
-                        name: controller.characters[index].name,
-                        species: controller.characters[index].species,
-                        status: controller.characters[index].status,
                       ),
                     ),
                   );

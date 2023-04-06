@@ -18,7 +18,7 @@ class CharacterAppBar extends StatelessWidget {
           'assets/images/imgbg.png',
           fit: BoxFit.contain,
           width: width * 0.75,
-          height: height * 0.36,
+          height: height * 0.40,
         ),
       ),
     );

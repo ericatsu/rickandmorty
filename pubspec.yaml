@@ -1,4 +1,4 @@
-name: fluttergraphql
+name: rickAndmorty
 description: Browse and search the characters, locations and episodes of the Rick And Morty series using Flutter and GraphQL.
 
 
@@ -27,8 +27,8 @@ dependencies:
   json_annotation: ^4.4.0
   flutter_rating_bar: ^4.0.1
   get_cli: ^1.8.1
-  firebase_core: ^2.9.0
   firebase_auth: ^4.4.0
+  firebase_core: ^2.9.0
   
 
 dev_dependencies:

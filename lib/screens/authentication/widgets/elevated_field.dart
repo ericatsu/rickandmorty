@@ -1,4 +1,4 @@
-import 'package:fluttergraphql/shared/exports.dart';
+import 'package:rickAndmorty/shared/exports.dart';
 
 class ElevatedTextFormField extends StatelessWidget {
   const ElevatedTextFormField({
@@ -35,7 +35,7 @@ class ElevatedTextFormField extends StatelessWidget {
           contentPadding:
               const EdgeInsets.symmetric(horizontal: 10, vertical: 4),
           border: OutlineInputBorder(
-              borderRadius: BorderRadius.circular(28),
+              borderRadius: BorderRadius.circular(18),
               borderSide: const BorderSide(color: Colors.grey)),
         ),
         validator: validator, 

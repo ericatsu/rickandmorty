@@ -1,4 +1,4 @@
-import 'package:fluttergraphql/shared/exports.dart';
+import 'package:rickAndmorty/shared/exports.dart';
 
 
 class CharactersPage extends StatelessWidget {
@@ -9,7 +9,7 @@ class CharactersPage extends StatelessWidget {
   Widget build(BuildContext context) {
     final double height = MediaQuery.of(context).size.height;
     return Scaffold(
-      drawer: const DrawerWidget(),
+      drawer:  DrawerWidget(),
       body: NestedScrollView(
         headerSliverBuilder: (context, innerBoxIsScrolled) {
           return [

@@ -1,4 +1,4 @@
-import 'package:fluttergraphql/shared/exports.dart';
+import 'package:rickAndmorty/shared/exports.dart';
 
 class LocationsPage extends StatelessWidget {
   LocationsPage({super.key});

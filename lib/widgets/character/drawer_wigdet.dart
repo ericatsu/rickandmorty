@@ -1,9 +1,8 @@
-import 'package:fluttergraphql/controller/authentication/auth_repository.dart';
-import 'package:fluttergraphql/shared/exports.dart';
+import 'package:rickAndmorty/shared/exports.dart';
 
 class DrawerWidget extends StatelessWidget {
-  const DrawerWidget({Key? key}) : super(key: key);
-
+   DrawerWidget({Key? key}) : super(key: key);
+  final user = FirebaseAuth.instance.currentUser!;
   @override
   Widget build(BuildContext context) {
     return Drawer(
@@ -91,7 +90,7 @@ class DrawerWidget extends StatelessWidget {
       children: [
         InkWell(
           onTap: () {
-            AuthenticationRepository.instance.logout();
+            FirebaseAuth.instance.signOut();
           },
           child: const CircleAvatar(
             radius: 40,
@@ -103,14 +102,14 @@ class DrawerWidget extends StatelessWidget {
         ),
         Column(
           crossAxisAlignment: CrossAxisAlignment.start,
-          children: const [
-            Text('User Name',
+          children:  [
+            const Text('User Name',
                 style: TextStyle(fontSize: 14, color: Color(0xFF0B3C5D))),
-            SizedBox(
+            const SizedBox(
               height: 10,
             ),
-            Text('user@email.com',
-                style: TextStyle(fontSize: 14, color: Color(0xFF0B3C5D)))
+            Text(user.email!,
+                style: const TextStyle(fontSize: 14, color: Color(0xFF0B3C5D)))
           ],
         )
       ],

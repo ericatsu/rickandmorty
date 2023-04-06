@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
-import 'package:fluttergraphql/model/location.dart';
-import 'package:fluttergraphql/services/location_service.dart';
+import 'package:rickAndmorty/model/location.dart';
+import 'package:rickAndmorty/services/location_service.dart';
 import 'package:get/get.dart';
 
 class LocationsController extends GetxController {

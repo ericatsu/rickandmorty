@@ -1,7 +1,5 @@
-import 'package:fluttergraphql/controller/authentication/auth_repository.dart';
-import 'package:fluttergraphql/controller/authentication/user_controller.dart';
-import 'package:fluttergraphql/shared/exports.dart';
-import 'package:fluttergraphql/shared/vadilator.dart';
+import 'package:rickAndmorty/shared/exports.dart';
+import 'package:rickAndmorty/shared/vadilator.dart';
 
 class SignUpPage extends StatefulWidget {
   const SignUpPage({super.key});
@@ -12,11 +10,36 @@ class SignUpPage extends StatefulWidget {
 
 class _SignUpPageState extends State<SignUpPage> {
   final _registerFormKey = GlobalKey<FormState>();
-  final controller = Get.put(SignUpController());
+  final _nameController = TextEditingController();
+  final _emailController = TextEditingController();
+  final _passwordController = TextEditingController();
+  final _confirmpasswordController = TextEditingController();
 
-  final _focusName = FocusNode();
-  final _focusEmail = FocusNode();
-  final _focusPassword = FocusNode();
+  Future signUp() async {
+    if (passwordConfirmed()) {
+      await FirebaseAuth.instance.createUserWithEmailAndPassword(
+          email: _emailController.text.trim(),
+          password: _passwordController.text.trim());
+    }
+  }
+
+  bool passwordConfirmed(){
+    if (_passwordController.text.trim() == _confirmpasswordController.text.trim()) {
+      return true;
+    }
+    else {
+      return false;
+    }
+  }
+
+  @override
+  void dispose() {
+    super.dispose();
+    _nameController.dispose();
+    _emailController.dispose();
+    _passwordController.dispose();
+    _confirmpasswordController.dispose();
+  }
 
   @override
   Widget build(BuildContext context) {
@@ -28,157 +51,151 @@ class _SignUpPageState extends State<SignUpPage> {
           height: height,
           color: const Color.fromARGB(255, 255, 255, 224),
         ),
-        SafeArea(
-          child: Padding(
-            padding: const EdgeInsets.symmetric(horizontal: 20),
-            child: Column(
-              crossAxisAlignment: CrossAxisAlignment.start,
-              children: [
-                TopRightRichText(
-                  link: 'Login',
-                  normal: 'Have an account',
-                  onTap: () {
-                    Get.to(
-                      const SignInPage(),
-                    );
-                  },
-                ),
-                SizedBox(
-                  height: height * 0.12,
-                ),
-                const Greetings(
-                  greeting: 'Welcome',
-                  type: 'Sign Up',
-                ),
-                Form(
-                  key: _registerFormKey,
-                  child: Padding(
-                    padding: const EdgeInsets.all(10.0),
-                    child: Column(
-                      crossAxisAlignment: CrossAxisAlignment.center,
-                      children: [
-                        const SizedBox(height: 12.0),
-                        ElevatedTextFormField(
-                          label: 'Name',
-                          controller: controller.fullName,
-                           focusNode: _focusName,
-                          validator: (value) => Validator.validateName(
-                            name: value,
+        SingleChildScrollView(
+          child: SafeArea(
+            child: Padding(
+              padding: const EdgeInsets.symmetric(horizontal: 20),
+              child: Column(
+                crossAxisAlignment: CrossAxisAlignment.start,
+                children: [
+                  TopRightRichText(
+                    link: 'Login',
+                    normal: 'Have an account',
+                    onTap: () {
+                      Get.to(
+                        const SignInPage(),
+                      );
+                    },
+                  ),
+                  SizedBox(
+                    height: height * 0.12,
+                  ),
+                  const Greetings(
+                    greeting: 'Welcome',
+                    type: 'Sign Up',
+                  ),
+                  Form(
+                    key: _registerFormKey,
+                    child: Padding(
+                      padding: const EdgeInsets.all(10.0),
+                      child: Column(
+                        crossAxisAlignment: CrossAxisAlignment.center,
+                        children: [
+                          const SizedBox(height: 12.0),
+                          ElevatedTextFormField(
+                            label: 'Name',
+                            controller: _nameController,
+                            validator: (value) => Validator.validateName(
+                              name: value,
+                            ),
                           ),
-                        ),
-                        const SizedBox(height: 16.0),
-                        ElevatedTextFormField(
-                          label: 'Email',
-                          controller: controller.email,
-                          focusNode: _focusEmail,
-                          validator: (value) => Validator.validateEmail(
-                            email: value,
+                          const SizedBox(height: 16.0),
+                          ElevatedTextFormField(
+                            label: 'Email',
+                            controller: _emailController,
+                            validator: (value) => Validator.validateEmail(
+                              email: value,
+                            ),
                           ),
-                        ),
-                        const SizedBox(height: 16.0),
-                        ElevatedTextFormField(
-                          label: 'Password',
-                          obscureText: true,
-                          controller: controller.password,
-                          focusNode: _focusPassword,
-                          validator: (value) => Validator.validatePassword(
-                            password: value,
+                          const SizedBox(height: 16.0),
+                          ElevatedTextFormField(
+                            label: 'Password',
+                            obscureText: true,
+                            controller: _passwordController,
+                            validator: (value) => Validator.validatePassword(
+                              password: value,
+                            ),
                           ),
-                        ),
-                        const SizedBox(height: 16.0),
-                        ElevatedTextFormField(
-                          label: 'Confirm Password',
-                          obscureText: true,
-                          controller: controller.password,
-                          focusNode: _focusPassword,
-                          validator: (value) => Validator.validatePassword(
-                            password: value,
+                          const SizedBox(height: 16.0),
+                          ElevatedTextFormField(
+                            label: 'Confirm Password',
+                            obscureText: true,
+                            controller: _confirmpasswordController,
+                            validator: (value) => Validator.validatePassword(
+                              password: value,
+                            ),
                           ),
-                        ),
-                        const SizedBox(height: 16.0),
-                        Container(
-                          height: height * 0.048,
-                          width: width * 0.28,
-                          decoration: BoxDecoration(
-                            gradient: Palette.linecolor,
-                            borderRadius: BorderRadius.circular(50),
-                            border: Border.all(color: Colors.teal),
-                            
-                          ),
-                          child: Material(
-                            color: Colors.transparent,
-                            child: InkWell(
+                          const SizedBox(height: 16.0),
+                          Container(
+                            height: height * 0.048,
+                            width: width * 0.28,
+                            decoration: BoxDecoration(
+                              gradient: Palette.linecolor,
                               borderRadius: BorderRadius.circular(50),
-                              onTap: () {
-                                if (_registerFormKey.currentState!.validate()) {
-                                  Get.put(AuthenticationRepository());
-                                  SignUpController.instance.registerUser(controller.email.text.trim(), controller.password.text.trim());
-                                }
-                              },
-                              child: const Align(
-                                alignment: Alignment.center,
-                                child: Padding(
-                                  padding: EdgeInsets.all(6),
-                                  child: Text(
-                                    'Submit',
-                                    style: TextStyle(
-                                        fontSize: 13,
-                                        color: Colors.white,
-                                        fontWeight: FontWeight.w500),
+                              border: Border.all(color: Colors.teal),
+                            ),
+                            child: Material(
+                              color: Colors.transparent,
+                              child: InkWell(
+                                borderRadius: BorderRadius.circular(50),
+                                onTap: () {
+                                  signUp();
+                                },
+                                child: const Align(
+                                  alignment: Alignment.center,
+                                  child: Padding(
+                                    padding: EdgeInsets.all(6),
+                                    child: Text(
+                                      'Submit',
+                                      style: TextStyle(
+                                          fontSize: 13,
+                                          color: Colors.white,
+                                          fontWeight: FontWeight.w500),
+                                    ),
                                   ),
                                 ),
                               ),
                             ),
                           ),
-                        ),
-                      ],
+                        ],
+                      ),
                     ),
                   ),
-                ),
-                SizedBox(
-                  height: height * 0.032,
-                ),
-                const Align(
-                  alignment: Alignment.center,
-                  child: Text(
-                    'Or sign up with',
-                    style: TextStyle(
-                      fontSize: 13,
-                      fontWeight: FontWeight.bold,
+                  SizedBox(
+                    height: height * 0.032,
+                  ),
+                  const Align(
+                    alignment: Alignment.center,
+                    child: Text(
+                      'Or sign up with',
+                      style: TextStyle(
+                        fontSize: 13,
+                        fontWeight: FontWeight.bold,
+                      ),
                     ),
                   ),
-                ),
-                SizedBox(
-                  height: height * 0.012,
-                ),
-                Align(
-                  alignment: Alignment.center,
-                  child: SizedBox(
-                    height: height * 0.06,
-                    width: width * 0.8,
-                    child: Row(
-                        mainAxisAlignment: MainAxisAlignment.spaceEvenly,
-                        children: [
-                          BoxButton(
-                            image: Images.google,
-                            onTap: () {},
-                          ),
-                          BoxButton(
-                            image: Images.twitter,
-                            onTap: () {},
-                          ),
-                          BoxButton(
-                            image: Images.apple,
-                            onTap: () {},
-                          ),
-                          BoxButton(
-                            image: Images.github,
-                            onTap: () {},
-                          ),
-                        ]),
+                  SizedBox(
+                    height: height * 0.012,
                   ),
-                ),
-              ],
+                  Align(
+                    alignment: Alignment.center,
+                    child: SizedBox(
+                      height: height * 0.06,
+                      width: width * 0.8,
+                      child: Row(
+                          mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+                          children: [
+                            BoxButton(
+                              image: Images.google,
+                              onTap: () {},
+                            ),
+                            BoxButton(
+                              image: Images.twitter,
+                              onTap: () {},
+                            ),
+                            BoxButton(
+                              image: Images.apple,
+                              onTap: () {},
+                            ),
+                            BoxButton(
+                              image: Images.github,
+                              onTap: () {},
+                            ),
+                          ]),
+                    ),
+                  ),
+                ],
+              ),
             ),
           ),
         ),

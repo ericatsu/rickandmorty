@@ -1,4 +1,4 @@
-import 'package:fluttergraphql/data/query.dart';
+import 'package:rickAndmorty/data/query.dart';
 import 'package:graphql_flutter/graphql_flutter.dart';
 
 class CharacterServices {

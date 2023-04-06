@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
-import 'package:fluttergraphql/model/episode.dart';
-import 'package:fluttergraphql/services/episode_service.dart';
+import 'package:rickAndmorty/model/episode.dart';
+import 'package:rickAndmorty/services/episode_service.dart';
 import 'package:get/get.dart';
 
 class EpisodesController extends GetxController {

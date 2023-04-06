@@ -1,4 +1,4 @@
-import 'package:fluttergraphql/shared/exports.dart';
+import 'package:rickAndmorty/shared/exports.dart';
 
 class CharacterPage extends StatelessWidget {
   CharacterPage({super.key});

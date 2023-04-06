@@ -1,9 +1,10 @@
-import 'package:fluttergraphql/controller/authentication/auth_repository.dart';
-import 'package:fluttergraphql/shared/exports.dart';
+import 'package:firebase_core/firebase_core.dart';
+import 'package:rickAndmorty/shared/exports.dart';
+import 'package:rickAndmorty/screens/authentication/main_page.dart';
 
-void main()  {
+Future<void> main() async {
   WidgetsFlutterBinding.ensureInitialized();
-  Firebase.initializeApp().then((value) => Get.put(AuthenticationRepository()));
+  await Firebase.initializeApp();
   
   runApp(const MyApp());
 }
@@ -28,7 +29,7 @@ class MyApp extends StatelessWidget {
           GetPage(name: '/episode', page: () => EpisodePage()),
         ]),
       ],
-      home: const SplashScreen(), 
+      home: const MainPage(), 
     );
   }
 }

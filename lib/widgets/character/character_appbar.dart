@@ -8,32 +8,18 @@ class CharacterAppBar extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     final double height = MediaQuery.of(context).size.height;
-    //final double width = MediaQuery.of(context).size.width;
+    final double width = MediaQuery.of(context).size.width;
 
-    return Padding(
-      padding: const EdgeInsets.symmetric(horizontal: 10),
-      child: Column(
-        // overflow: Overflow.visible,
-        children: [
-         Image.asset(
+    return FlexibleSpaceBar(
+      stretchModes: const [StretchMode.zoomBackground],
+      background: Padding(
+        padding: const EdgeInsets.symmetric(horizontal: 10),
+        child: Image.asset(
           'assets/images/imgbg.png',
           fit: BoxFit.contain,
-          width: double.infinity,
-          height: height * 0.34,
+          width: width * 0.75,
+          height: height * 0.36,
         ),
-        Align(
-          alignment: Alignment.bottomLeft,
-          child: Text(
-                'Characters',
-                style: GoogleFonts.firaSans(
-                  textStyle: const TextStyle(
-                    color: Colors.blue,
-                    fontSize: 24,
-                  ),
-                ),
-              ),
-        ),
-      ]
       ),
     );
   }

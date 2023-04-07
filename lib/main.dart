@@ -27,6 +27,7 @@ class MyApp extends StatelessWidget {
         GetPage(name: '/', page: () => EpisodesPage(), children: [
           GetPage(name: '/episode', page: () => EpisodePage()),
         ]),
+        GetPage(name: '/', page: () => ProfilePage(),),
       ],
       home: const MainPage(), 
     );

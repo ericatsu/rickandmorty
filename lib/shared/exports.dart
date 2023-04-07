@@ -45,6 +45,8 @@ export 'package:rickAndmorty/screens/authentication/signup/signup_page.dart';
 export 'package:rickAndmorty/screens/authentication/signin/signin_page.dart';
 export 'package:rickAndmorty/screens/authentication/widgets/topright_rich_text.dart';
 
+export 'package:rickAndmorty/screens/profile_page.dart';
+
 
 
 //widgets

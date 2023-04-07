@@ -32,7 +32,7 @@ class CharactersPage extends StatelessWidget {
                 'Characters',
                 style: TextStyle(
                     fontSize: 22,
-                    color: Colors.teal,
+                    color: Colors.blue,
                     fontWeight: FontWeight.w500),
               ),
             ),

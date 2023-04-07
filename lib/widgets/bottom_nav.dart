@@ -19,7 +19,8 @@ class _BottomNavState extends State<BottomNav> {
   final List<Widget> _pages = <Widget>[
     CharactersPage(),
     LocationsPage(),
-    EpisodesPage()
+    EpisodesPage(),
+    const ProfilePage(),
   ];
 
   @override
@@ -27,35 +28,46 @@ class _BottomNavState extends State<BottomNav> {
     return Scaffold(
       body: _pages[selectedIndex],
       bottomNavigationBar: Container(
-        color: const Color(0xFF00AFCA),
+        height: 65,
+        decoration: const BoxDecoration(
+          color: Color.fromARGB(255, 224, 233, 232),
+          borderRadius: BorderRadius.only(
+            topLeft: Radius.circular(20),
+            topRight: Radius.circular(20),
+          ),
+        ),
         child: Padding(
-          padding: const EdgeInsets.symmetric(horizontal: 12, vertical: 20),
+          padding: const EdgeInsets.symmetric(horizontal: 40, vertical: 14),
           child: GNav(
-            backgroundColor: const Color(0xFF00AFCA),
-            color: Colors.white,
-            activeColor: Colors.white,
-            tabBackgroundColor: Colors.blue.shade200,
+            backgroundColor: Colors.white,
+            activeColor: Colors.blue,
             onTabChange: _navigateBottomBar,
-            gap: 6,
-            padding: const EdgeInsets.all(8.0),
+            padding: const EdgeInsets.all(6.0),
+            mainAxisAlignment: MainAxisAlignment.spaceEvenly,
             tabs: const [
               GButton(
                 icon: Icons.people,
-                iconSize: 30,
-                text: 'Character',
-                textSize: 30,
+                iconColor: Colors.blue,
+                iconActiveColor: Colors.black,
+                iconSize: 25,
               ),
               GButton(
                 icon: Icons.location_pin,
-                iconSize: 30,
-                text: 'Location',
-                textSize: 30,
+                iconColor: Colors.blue,
+                iconActiveColor: Colors.black,
+                iconSize: 25,
               ),
               GButton(
                 icon: Icons.movie,
-                iconSize: 30,
-                text: 'Episodes',
-                textSize: 30,
+                iconColor: Colors.blue,
+                iconActiveColor: Colors.black,
+                iconSize: 25,
+              ),
+              GButton(
+                icon: Icons.person_2_outlined,
+                iconColor: Colors.blue,
+                iconActiveColor: Colors.black,
+                iconSize: 25,
               ),
             ],
           ),

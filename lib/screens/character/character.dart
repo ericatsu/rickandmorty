@@ -1,3 +1,4 @@
+import 'package:flutter/cupertino.dart';
 import 'package:rickAndmorty/shared/exports.dart';
 
 class CharacterPage extends StatelessWidget {
@@ -9,70 +10,84 @@ class CharacterPage extends StatelessWidget {
   Widget build(BuildContext context) {
     final character = controller.character;
     final double height = MediaQuery.of(context).size.height;
-
-    return Scaffold(
-        appBar: AppBar(
-          elevation: 0,
-          backgroundColor: Colors.blue,
-          leading: IconButton(
-            icon: const Icon(
-              Icons.arrow_back_ios_new_outlined,
-              color: Colors.white,
-              size: 20,
+    final double width = MediaQuery.of(context).size.width;
+    return SafeArea(
+      child: Scaffold(
+          body: Stack(
+        children: [
+          Container(
+            height: height * 0.55,
+            width: width * 0.75,
+            decoration: BoxDecoration(
+              image: DecorationImage(
+                  image: NetworkImage(character.image), fit: BoxFit.contain),
             ),
-            onPressed: () {
-              Get.back();
-            },
           ),
-        ),
-        body: Stack(
-          children: [
-            Container(
-              height: height * 0.40,
-              // decoration: BoxDecoration(
-              //   image: DecorationImage(
-              //     image: NetworkImage(character.image),
-              //   ),
-              // ),
+          SafeArea(
+            child: Column(
+              children: [
+                Align(
+                  alignment: Alignment.topLeft,
+                  child: IconButton(
+                    icon: const Icon(
+                      CupertinoIcons.back,
+                      color: Colors.red,
+                      size: 24,
+                    ),
+                    onPressed: () {
+                      Get.back();
+                    },
+                  ),
+                ),
+                SizedBox(
+                  height: height * 0.40,
+                ),
+                Column(
+                  children:  [
+                    Image(image: NetworkImage(character.image)),
+                    Text(character.species),
+                    Text(character.status),
+                    ListView.builder(
+                      itemCount: character.episode.length,
+                      itemBuilder: (context, index){
+                        return Column(
+                          children: [
+                            Text('Episone Number:${character.episode[index].episode}'),
+                            Text('Episone Name:${character.episode[index].name}'),
+                          ],
+                        );
+                    })
+                  ],
+                ),
+                // CharacterBox(
+                //   name: character.name,
+                //   status: character.status,
+                //   species: character.species,
+                //   gender: character.gender, 
+                // ),
+              ],
             ),
-            SafeArea(
-              child: Column(
-                children: [
-                  SizedBox(
-                   width: double.infinity,
-                   child: Image.network(character.image,
-                   fit: BoxFit.fill,
-                   height: height * 0.40,
-                   ),
-                  ),
-                  CharacterBox(
-                    name: character.name,
-                    status: character.status,
-                    species: character.species,
-                    gender: character.gender,
-                  ),
-                ],
-              ),
-            )
-          ],
-        )
-        // Column(
-        //   children:  [
-        //     Image(image: NetworkImage(character.image)),
-        //     Text(character.species),
-        //     Text(character.status),
-        //     // ListView.builder(
-        //     //   itemCount: character.episode.length,
-        //     //   itemBuilder: (context, index){
-        //     //     return Column(
-        //     //       children: [
-        //     //         Text('Episone Number:${character.episode[index].episode}'),
-        //     //         Text('Episone Name:${character.episode[index].name}'),
-        //     //       ],
-        //     //     );
-        //     // })
-        //   ],
-        // ),
-        );
+          )
+        ],
+      )
+          // Column(
+          //   children:  [
+          //     Image(image: NetworkImage(character.image)),
+          //     Text(character.species),
+          //     Text(character.status),
+          //     // ListView.builder(
+          //     //   itemCount: character.episode.length,
+          //     //   itemBuilder: (context, index){
+          //     //     return Column(
+          //     //       children: [
+          //     //         Text('Episone Number:${character.episode[index].episode}'),
+          //     //         Text('Episone Name:${character.episode[index].name}'),
+          //     //       ],
+          //     //     );
+          //     // })
+          //   ],
+          // ),
+          ),
+    );
   }
 }

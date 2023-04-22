@@ -25,7 +25,7 @@ class _ForgetPasswordState extends State<ForgetPassword> {
               content: Text('Password reset link sent! Check your email'),
             );
     } on FirebaseAuthException catch (e) {
-      print(e);
+      //print(e);
       showDialog(
           context: context,
           builder: (context) {

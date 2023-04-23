@@ -1,3 +1,4 @@
+import 'package:flutter/cupertino.dart';
 import 'package:rickAndmorty/shared/exports.dart';
 
 class BottomNav extends StatefulWidget {
@@ -8,15 +9,9 @@ class BottomNav extends StatefulWidget {
 }
 
 class _BottomNavState extends State<BottomNav> {
-  int selectedIndex = 0;
+  int _selectedIndex = 0;
 
-  void _navigateBottomBar(int index) {
-    setState(() {
-      selectedIndex = index;
-    });
-  }
-
-  final List<Widget> _pages = <Widget>[
+  final List<Widget> _pages = [
     CharactersPage(),
     LocationsPage(),
     EpisodesPage(),
@@ -25,54 +20,66 @@ class _BottomNavState extends State<BottomNav> {
 
   @override
   Widget build(BuildContext context) {
+    final double height = MediaQuery.of(context).size.height;
+    final double width= MediaQuery.of(context).size.width;
     return Scaffold(
-      body: _pages[selectedIndex],
-      bottomNavigationBar: Container(
-        height: 65,
-        decoration: const BoxDecoration(
-          color: Color.fromARGB(255, 224, 233, 232),
-          borderRadius: BorderRadius.only(
-            topLeft: Radius.circular(20),
-            topRight: Radius.circular(20),
+      body: _pages[_selectedIndex],
+      backgroundColor: const Color.fromARGB(255, 241, 241, 241),
+      bottomNavigationBar: BottomAppBar(
+        child: Container(
+          height: height * 0.105,
+          decoration: const BoxDecoration(
+            color: Color.fromARGB(255, 230, 230, 230),
+            borderRadius: BorderRadius.only(
+              topLeft: Radius.circular(20),
+              topRight: Radius.circular(20),
+            ),
           ),
-        ),
-        child: Padding(
-          padding: const EdgeInsets.symmetric(horizontal: 40, vertical: 14),
-          child: GNav(
-            backgroundColor: Colors.white,
-            activeColor: Colors.blue,
-            onTabChange: _navigateBottomBar,
-            padding: const EdgeInsets.all(6.0),
+          child: Column(
             mainAxisAlignment: MainAxisAlignment.spaceEvenly,
-            tabs: const [
-              GButton(
-                icon: Icons.people,
-                iconColor: Colors.blue,
-                iconActiveColor: Colors.black,
-                iconSize: 25,
+            children: [
+              Container(
+                height: 10,
+                color: Colors.transparent,
               ),
-              GButton(
-                icon: Icons.location_pin,
-                iconColor: Colors.blue,
-                iconActiveColor: Colors.black,
-                iconSize: 25,
+              Container(
+                decoration: const BoxDecoration(
+                  color: Color.fromARGB(255, 187, 187, 187),
+                  borderRadius: BorderRadius.all(Radius.circular(15)
+                  ),
+                ),
+                height: height * 0.06,
+                width: width * 0.7,
+                child: Row(
+                  mainAxisAlignment: MainAxisAlignment.center,
+                  children: <Widget>[
+                    navIcon(CupertinoIcons.group, 0),
+                    navIcon(CupertinoIcons.placemark, 1),
+                    navIcon(CupertinoIcons.tv, 2),
+                    navIcon(CupertinoIcons.person, 3),
+                  ],
+                ),
               ),
-              GButton(
-                icon: Icons.movie,
-                iconColor: Colors.blue,
-                iconActiveColor: Colors.black,
-                iconSize: 25,
-              ),
-              GButton(
-                icon: Icons.person_2_outlined,
-                iconColor: Colors.blue,
-                iconActiveColor: Colors.black,
-                iconSize: 25,
+              Container(
+                height: 10,
+                color: Colors.transparent,
               ),
             ],
           ),
         ),
       ),
+    );
+  }
+
+  Widget navIcon(IconData icon, int index) {
+    return IconButton(
+      icon: Icon(icon, size: 26.0),
+      color: _selectedIndex == index ? const Color.fromARGB(255, 28, 12, 248) : const Color.fromARGB(255, 102, 101, 101),
+      onPressed: () {
+        setState(() {
+          _selectedIndex = index;
+        });
+      },
     );
   }
 }

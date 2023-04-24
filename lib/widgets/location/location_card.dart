@@ -5,26 +5,24 @@ class LocationCard extends StatelessWidget {
   final String type;
   const LocationCard({super.key, required this.name, required this.type});
 
-   
   @override
   Widget build(BuildContext context) {
-    
     return Container(
       margin: const EdgeInsets.all(10),
       child: Column(
         crossAxisAlignment: CrossAxisAlignment.start,
         children: [
-             ClipRRect(
-              borderRadius: BorderRadius.circular(10),
-              child: const Image(
-                fit: BoxFit.fill,
-                image: AssetImage('assets/images/earth.jpg'),
-              ),
-             ),
-             const SizedBox(
+          ClipRRect(
+            borderRadius: BorderRadius.circular(12),
+            child: const Image(
+              fit: BoxFit.fill,
+              image: AssetImage('assets/images/earth.jpg'),
+            ),
+          ),
+          const SizedBox(
             height: 8,
           ),
-            Text(
+          Text(
             name,
             style: GoogleFonts.openSans(
               textStyle: const TextStyle(
@@ -33,11 +31,11 @@ class LocationCard extends StatelessWidget {
               ),
             ),
           ),
-            Text(
+          Text(
             type,
             style: GoogleFonts.openSans(
               textStyle: const TextStyle(
-                fontSize: 13,
+                fontSize: 14,
               ),
             ),
           ),

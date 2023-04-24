@@ -15,7 +15,7 @@ class LocationsPage extends StatelessWidget {
               const LocationAppBar(),
               Flexible(
                 child: Padding(
-                  padding: const EdgeInsets.symmetric(horizontal: 10),
+                  padding: const EdgeInsets.symmetric(horizontal: 12),
                   child: Obx(
                     () => ListView.builder(
                         controller: controller.scrollController,

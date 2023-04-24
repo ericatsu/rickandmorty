@@ -3,10 +3,14 @@ import 'package:rickAndmorty/shared/exports.dart';
 class LocationCard extends StatelessWidget {
   final String name;
   final String type;
-  const LocationCard({super.key, required this.name, required this.type});
+  final String image;
+  const LocationCard({super.key, required this.name, required this.type, required this.image});
 
   @override
   Widget build(BuildContext context) {
+        final double height = MediaQuery.of(context).size.height;
+    final double width= MediaQuery.of(context).size.width;
+
     return Container(
       margin: const EdgeInsets.all(10),
       child: Column(
@@ -14,9 +18,11 @@ class LocationCard extends StatelessWidget {
         children: [
           ClipRRect(
             borderRadius: BorderRadius.circular(12),
-            child: const Image(
+            child:  Image(
+              height: height * 0.2,
+              width: width * 0.78,
               fit: BoxFit.fill,
-              image: AssetImage('assets/images/earth.jpg'),
+              image: AssetImage(image),
             ),
           ),
           const SizedBox(

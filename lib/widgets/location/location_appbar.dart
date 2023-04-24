@@ -7,10 +7,8 @@ class LocationAppBar extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-
     return Container(
       padding: const EdgeInsets.only(top: 20, left: 20, right: 20),
-      //height: height * 0.11,
       width: double.infinity,
       child: Column(
         children: [
@@ -23,7 +21,7 @@ class LocationAppBar extends StatelessWidget {
                 textAlign: TextAlign.center,
                 style: GoogleFonts.openSans(
                   textStyle: const TextStyle(
-                    fontSize: 30,
+                    fontSize: 28,
                     color: Colors.blue,
                     fontWeight: FontWeight.w700,
                   ),

@@ -33,7 +33,8 @@ class LocationsPage extends StatelessWidget {
                             },
                             child: LocationCard(
                               name: controller.locations[index].name.toString(),
-                              type: controller.locations[index].type.toString(),
+                              type: controller.locations[index].type.toString(), 
+                              image: 'assets/images/earth.jpg',
                             ),
                           );
                         }),

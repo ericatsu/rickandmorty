@@ -1,4 +1,4 @@
-import 'package:rickAndmorty/shared/exports.dart';
+import 'package:rickandmorty/shared/exports.dart';
 
 class LocationCard extends StatelessWidget {
   final String name;

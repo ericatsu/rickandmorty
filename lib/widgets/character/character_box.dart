@@ -1,6 +1,6 @@
 import 'dart:math';
 
-import 'package:rickAndmorty/shared/exports.dart';
+import 'package:rickandmorty/shared/exports.dart';
 
 class CharacterBox extends StatefulWidget {
   final String name;

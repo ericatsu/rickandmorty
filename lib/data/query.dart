@@ -1,6 +1,6 @@
 import 'package:graphql/client.dart';
 
-class RickandMortyApi {
+class rickandmortyApi {
   static final httpLink = HttpLink('https://rickandmortyapi.com/graphql');
 
   static String fetchAllCharacterGraphQL = """

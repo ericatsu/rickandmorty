@@ -1,5 +1,5 @@
 import 'package:flutter/cupertino.dart';
-import 'package:rickAndmorty/shared/exports.dart';
+import 'package:rickandmorty/shared/exports.dart';
 
 class BottomNav extends StatefulWidget {
   const BottomNav({super.key});

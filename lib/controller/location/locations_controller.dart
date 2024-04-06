@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
-import 'package:rickAndmorty/model/location.dart';
-import 'package:rickAndmorty/services/location_service.dart';
+import 'package:rickandmorty/model/location.dart';
+import 'package:rickandmorty/services/location_service.dart';
 import 'package:get/get.dart';
 
 class LocationsController extends GetxController {

@@ -1,4 +1,4 @@
-name: rickAndmorty
+name: rickandmorty
 description: Browse and search the characters, locations and episodes of the Rick And Morty series using Flutter and GraphQL.
 
 publish_to: 'none' # Remove this line if you wish to publish to pub.dev
@@ -16,18 +16,19 @@ dependencies:
 
   # The following adds the Cupertino Icons font to your application.
   # Use with the CupertinoIcons class for iOS style icons.
-  cupertino_icons: ^1.0.2
-  google_fonts: ^4.0.3
+  cupertino_icons:
+  google_fonts:
   get: 
   google_nav_bar: 
   cached_network_image: 
-  graphql_flutter: ^5.0.0
-  json_annotation: ^4.4.0
-  flutter_rating_bar: ^4.0.1
-  get_cli: ^1.8.1
-  firebase_auth: ^4.4.0
-  firebase_core: ^2.9.0
-  flutter_spinkit: ^5.1.0
+  graphql_flutter:
+  json_annotation:
+  flutter_rating_bar:
+  get_cli:
+  firebase_auth:
+  firebase_core:
+  flutter_spinkit:
+  rename_app:
   
 
 dev_dependencies:

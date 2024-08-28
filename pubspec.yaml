@@ -21,7 +21,7 @@ dependencies:
   get: 
   google_nav_bar: 
   cached_network_image: 
-  graphql_flutter:
+  graphql_flutter: ^5.1.2
   json_annotation:
   flutter_rating_bar:
   get_cli:

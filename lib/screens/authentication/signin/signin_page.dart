@@ -1,3 +1,5 @@
+import 'dart:convert';
+import 'package:http/http.dart' as http;
 import 'package:rickandmorty/shared/exports.dart';
 
 class SignInPage extends StatefulWidget {
@@ -10,19 +12,44 @@ class SignInPage extends StatefulWidget {
 class _SignInPageState extends State<SignInPage> {
   final _formKey = GlobalKey<FormState>();
 
-  final _emailController = TextEditingController();
+  final _usernameController = TextEditingController();
   final _passwordController = TextEditingController();
 
-  Future signIn() async {
-    await FirebaseAuth.instance.signInWithEmailAndPassword(
-      email: _emailController.text.trim(), 
-      password: _passwordController.text.trim());
+  Future<void> signIn() async {
+    final username = _usernameController.text.trim();
+    final password = _passwordController.text.trim();
+
+    if (!_formKey.currentState!.validate()) {
+      return;
+    }
+
+    try {
+      final response = await http.post(
+        Uri.parse('https://dummyjson.com/auth/login'),
+        headers: {'Content-Type': 'application/json'},
+        body: jsonEncode({
+          'username': username,
+          'password': password,
+          'expiresInMins': 30,
+        }),
+      );
+
+      if (response.statusCode == 200) {
+        final user = jsonDecode(response.body);
+        Get.snackbar('Success', 'Logged in successfully');
+        Get.offNamed('/main', arguments: user);
+      } else {
+        Get.snackbar('Error', 'Invalid credentials');
+      }
+    } catch (error) {
+      Get.snackbar('Error', 'An error occurred. Please try again.');
+    }
   }
 
   @override
   void dispose() {
     super.dispose();
-    _emailController.dispose();
+    _usernameController.dispose();
     _passwordController.dispose();
   }
 
@@ -47,9 +74,9 @@ class _SignInPageState extends State<SignInPage> {
                     link: 'Sign Up',
                     normal: 'No account',
                     onTap: () {
-                      Get.to(
-                        const SignUpPage(),
-                      );
+                      // Get.to(
+                      //   const SignUpPage(),
+                      // );
                     },
                   ),
                   SizedBox(
@@ -68,11 +95,8 @@ class _SignInPageState extends State<SignInPage> {
                         children: [
                           const SizedBox(height: 16.0),
                           ElevatedTextFormField(
-                            label: 'Email',
-                            controller: _emailController,
-                            validator: (value) => Validator.validateEmail(
-                              email: value,
-                            ),
+                            label: 'Username',
+                            controller: _usernameController,
                           ),
                           const SizedBox(height: 16.0),
                           ElevatedTextFormField(
@@ -106,7 +130,7 @@ class _SignInPageState extends State<SignInPage> {
                                 ),
                                 BoxButton(
                                   image: Images.rightarrow,
-                                  onTap: (){
+                                  onTap: () {
                                     signIn();
                                   },
                                 ),
@@ -139,26 +163,25 @@ class _SignInPageState extends State<SignInPage> {
                       height: height * 0.06,
                       width: width * 0.8,
                       child: Row(
-                                  mainAxisAlignment:
-                                      MainAxisAlignment.spaceEvenly,
-                                  children: [
-                                    BoxButton(
-                                      image: Images.google,
-                                      onTap: () {},
-                                    ),
-                                    BoxButton(
-                                      image: Images.twitter,
-                                      onTap: () {},
-                                    ),
-                                    BoxButton(
-                                      image: Images.apple,
-                                      onTap: () {},
-                                    ),
-                                    BoxButton(
-                                      image: Images.github,
-                                      onTap: () {},
-                                    ),
-                                  ])
+                          mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+                          children: [
+                            BoxButton(
+                              image: Images.google,
+                              onTap: () {},
+                            ),
+                            BoxButton(
+                              image: Images.twitter,
+                              onTap: () {},
+                            ),
+                            BoxButton(
+                              image: Images.apple,
+                              onTap: () {},
+                            ),
+                            BoxButton(
+                              image: Images.github,
+                              onTap: () {},
+                            ),
+                          ]),
                     ),
                   ),
                 ],

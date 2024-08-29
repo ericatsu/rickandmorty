@@ -1,0 +1,39 @@
+{
+  "project_info": {
+    "project_number": "192860830831",
+    "project_id": "rickandmorty-lester",
+    "storage_bucket": "rickandmorty-lester.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:192860830831:android:6c87fce5ceddf50349a19a",
+        "android_client_info": {
+          "package_name": "com.lester.rickandmorty"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "192860830831-q688td3f1qi4usqkkvo2l2u94g8d1v59.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyBFCqus2zQeRXtkuv5taCpysuBv5nK8wlY"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "192860830831-q688td3f1qi4usqkkvo2l2u94g8d1v59.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

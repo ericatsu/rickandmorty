@@ -1,22 +1,22 @@
-import 'package:rickandmorty/shared/exports.dart';
+// import 'package:rickandmorty/shared/exports.dart';
 
-class AuthPage extends StatefulWidget {
-  const AuthPage({super.key});
+// class AuthPage extends StatefulWidget {
+//   const AuthPage({super.key});
 
-  @override
-  State<AuthPage> createState() => _AuthPageState();
-}
+//   @override
+//   State<AuthPage> createState() => _AuthPageState();
+// }
 
-class _AuthPageState extends State<AuthPage> {
+// class _AuthPageState extends State<AuthPage> {
 
-  bool showLoginPage = true;
+//   bool showLoginPage = true;
 
-  @override
-  Widget build(BuildContext context) {
-    if (showLoginPage) {
-      return const SignInPage();
-    } else {
-      return const SignUpPage();
-    }
-  }
-}
+//   @override
+//   Widget build(BuildContext context) {
+//     if (showLoginPage) {
+//       return const SignInPage();
+//     } else {
+//       return const SignUpPage();
+//     }
+//   }
+// }

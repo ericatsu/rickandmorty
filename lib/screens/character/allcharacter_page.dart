@@ -1,14 +1,15 @@
 import 'package:rickandmorty/shared/exports.dart';
 
 class CharactersPage extends StatelessWidget {
-  CharactersPage({super.key});
+  CharactersPage({super.key, required this.user});
+  final Map<String, dynamic> user;
   final controller = Get.put(AllCharactersController());
 
   @override
   Widget build(BuildContext context) {
     final double height = MediaQuery.of(context).size.height;
     return Scaffold(
-      drawer: DrawerWidget(),
+      drawer: DrawerWidget(user: user),
       body: CustomScrollView(
         slivers: [
           SliverAppBar(

@@ -26,9 +26,11 @@ dependencies:
   flutter_rating_bar:
   get_cli:
   firebase_auth:
-  firebase_core:
   flutter_spinkit:
   rename_app:
+  firebase_core: ^3.4.0
+  http: ^1.2.2
+  shared_preferences: ^2.3.2
   
 
 dev_dependencies:

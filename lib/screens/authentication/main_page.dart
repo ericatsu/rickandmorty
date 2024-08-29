@@ -1,20 +1,14 @@
-import 'package:rickandmorty/shared/exports.dart';
+import 'package:flutter/material.dart';
+import 'package:get/get.dart';
+import 'package:rickandmorty/widgets/bottom_nav.dart';
 
 class MainPage extends StatelessWidget {
-  const MainPage({super.key});
-
   @override
   Widget build(BuildContext context) {
+    final user = Get.arguments as Map<String, dynamic>;
+
     return Scaffold(
-      body: StreamBuilder(
-        stream: FirebaseAuth.instance.authStateChanges(),
-        builder: (context, snapshot){
-        if (snapshot.hasData) {
-          return const BottomNav();
-        } else {
-          return const SignInPage();
-        }
-      }),
+      body: BottomNav(user: user),
     );
   }
 }

@@ -1,8 +1,10 @@
 import 'package:rickandmorty/shared/exports.dart';
+import 'package:shared_preferences/shared_preferences.dart';
 
 class DrawerWidget extends StatelessWidget {
-   DrawerWidget({Key? key}) : super(key: key);
-  final user = FirebaseAuth.instance.currentUser!;
+  final Map<String, dynamic> user;
+
+  const DrawerWidget({Key? key, required this.user}) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
@@ -27,7 +29,7 @@ class DrawerWidget extends StatelessWidget {
                   height: 30,
                 ),
                 DrawerModel(
-                  name: 'Profie',
+                  name: 'Profile',
                   icon: Icons.account_box_rounded,
                   onPressed: () {},
                 ),
@@ -77,8 +79,8 @@ class DrawerWidget extends StatelessWidget {
                 DrawerModel(
                   name: 'Log out',
                   icon: Icons.logout,
-                  onPressed: () {
-                    FirebaseAuth.instance.signOut();
+                  onPressed: () async {
+                    await _handleLogout(context);
                   },
                 ),
               ],
@@ -89,27 +91,37 @@ class DrawerWidget extends StatelessWidget {
     );
   }
 
+Future<void> _handleLogout(BuildContext context) async {
+    SharedPreferences prefs = await SharedPreferences.getInstance();
+    await prefs.clear();
+
+    Get.offAll(() => const SignInPage());
+  }
 
   Widget profileWidget() {
     return Row(
       children: [
-        const CircleAvatar(
+        CircleAvatar(
           radius: 20,
-          backgroundImage: AssetImage("assets/images/splash.png"),
+          backgroundImage: NetworkImage(user['image'] ?? 'https://via.placeholder.com/150'),
         ),
         const SizedBox(
           width: 20,
         ),
         Column(
           crossAxisAlignment: CrossAxisAlignment.start,
-          children:  [
-            const Text('Ricky Morty',
-                style: TextStyle(fontSize: 14, color: Color(0xFF0B3C5D))),
+          children: [
+            Text(
+              '${user['firstName']} ${user['lastName']}',
+              style: const TextStyle(fontSize: 14, color: Color(0xFF0B3C5D)),
+            ),
             const SizedBox(
               height: 10,
             ),
-            Text(user.email!,
-                style: const TextStyle(fontSize: 14, color: Color(0xFF0B3C5D)))
+            Text(
+              user['email'],
+              style: const TextStyle(fontSize: 14, color: Color(0xFF0B3C5D)),
+            )
           ],
         )
       ],

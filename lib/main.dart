@@ -1,10 +1,6 @@
-import 'package:firebase_core/firebase_core.dart';
 import 'package:rickandmorty/shared/exports.dart';
 
-Future<void> main() async {
-  WidgetsFlutterBinding.ensureInitialized();
-  await Firebase.initializeApp();
-  
+void main() {
   runApp(const MyApp());
 }
 
@@ -13,23 +9,16 @@ class MyApp extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    //final user = Get.arguments as Map<String, dynamic>;
+
     return GetMaterialApp(
       debugShowCheckedModeBanner: false,
       translationsKeys: AppTranslation.translations,
-      initialRoute: '/',
+      initialRoute: '/login',
       getPages: [
-        GetPage(name: '/', page: () => CharactersPage(), children: [
-          GetPage(name: '/character_page', page: () => CharacterPage()),
-        ]),
-        GetPage(name: '/', page: () => LocationsPage(), children: [
-          GetPage(name: '/location', page: () => LocationPage()),
-        ]),
-        GetPage(name: '/', page: () => EpisodesPage(), children: [
-          GetPage(name: '/episode', page: () => EpisodePage()),
-        ]),
-        GetPage(name: '/', page: () => const ProfilePage(),),
+        GetPage(name: '/login', page: () => const SignInPage()),
+        GetPage(name: '/main', page: () => MainPage()),
       ],
-      home: const MainPage(), 
     );
   }
 }

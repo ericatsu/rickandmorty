@@ -1,7 +1,5 @@
 import 'package:flutter/material.dart';
 
-//import '../constants/colors.dart';
-
 class CircleButton extends StatelessWidget {
   final IconData icon;
   final GestureTapCallback onPressed;
@@ -13,8 +11,8 @@ class CircleButton extends StatelessWidget {
     return Padding(
       padding: const EdgeInsets.all(15.0),
       child: Container(
-        height:18,
-        width: 32,
+        height:30,
+        width: 35,
         decoration: const BoxDecoration(
           shape: BoxShape.rectangle,
           borderRadius: BorderRadius.horizontal(
@@ -26,7 +24,7 @@ class CircleButton extends StatelessWidget {
         child: Icon(
           icon,
           color: Colors.white,
-          size: 16,
+          size: 25,
         ),
       ),
     );

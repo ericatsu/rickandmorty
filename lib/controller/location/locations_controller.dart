@@ -13,19 +13,13 @@ class LocationsController extends GetxController {
   final locations = <Location>[].obs;
 
   final ScrollController scrollController = ScrollController();
+  final int expectedPageSize = 20;
 
 
   @override
   void onInit() {
-    fetchLocations(page.value);
-    scrollController.addListener(() {
-      if (scrollController.offset >=
-          scrollController.position.maxScrollExtent) {
-        page.value++;
-        fetchLocations(page.value);
-      }
-    });
     super.onInit();
+    fetchLocations(page.value);
   }
 
   void fetchLocations(int page) async {
@@ -35,7 +29,12 @@ class LocationsController extends GetxController {
     if (result.hasException) {
       hasException.value = true;
       isLoading.value = false;
-      //print(result.exception);
+      Get.snackbar(
+        'Error',
+        'Failed to fetch locations. Please try again.',
+        snackPosition: SnackPosition.BOTTOM,
+      );
+      return;
     }
 
     if (result.isNotLoading) {
@@ -45,6 +44,12 @@ class LocationsController extends GetxController {
       final List<dynamic> listResult = result.data!["locations"]['results'];
       for (var element in listResult) {
         locations.add(Location.fromJson(element));
+      }
+
+      if (listResult.length < expectedPageSize) {
+        return;
+      } else {
+        fetchLocations(page + 1);
       }
     }
   }

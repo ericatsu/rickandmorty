@@ -7,7 +7,6 @@ class LocationsPage extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      //The Body of the Home Page
       body: Stack(
         children: [
           Column(

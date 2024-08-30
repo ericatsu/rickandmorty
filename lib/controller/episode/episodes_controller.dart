@@ -13,17 +13,11 @@ class EpisodesController extends GetxController {
   final episodes = <Episode>[].obs;
 
   final ScrollController scrollController = ScrollController();
+  final int expectedPageSize = 20;
 
   @override
   void onInit() {
     fetchEpisodes(page.value);
-    scrollController.addListener(() {
-      if (scrollController.offset >=
-          scrollController.position.maxScrollExtent) {
-        page.value++;
-        fetchEpisodes(page.value);
-      }
-    });
     super.onInit();
   }
 
@@ -34,7 +28,12 @@ class EpisodesController extends GetxController {
     if (result.hasException) {
       hasException.value = true;
       isLoading.value = false;
-      //print(result.exception);
+      Get.snackbar(
+        'Error',
+        'Failed to fetch episodes. Please try again.',
+        snackPosition: SnackPosition.BOTTOM,
+      );
+      return;
     }
 
     if (result.isNotLoading) {
@@ -44,6 +43,12 @@ class EpisodesController extends GetxController {
       final List<dynamic> listResult = result.data!["episodes"]["results"];
       for (var element in listResult) {
         episodes.add(Episode.fromJson(element));
+      }
+
+      if (listResult.length < expectedPageSize) {
+        return;
+      } else {
+        fetchEpisodes(page + 1);
       }
     }
   }

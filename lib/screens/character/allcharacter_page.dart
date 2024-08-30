@@ -1,4 +1,5 @@
 import 'package:rickandmorty/shared/exports.dart';
+import 'package:rickandmorty/widgets/character/shimmer_card.dart';
 
 class CharactersPage extends StatelessWidget {
   CharactersPage({super.key, required this.user});
@@ -48,9 +49,7 @@ class CharactersPage extends StatelessWidget {
                 ),
                 itemBuilder: (context, index) {
                   if (controller.isLoading.isTrue) {
-                    return const Center(
-                      child: CircularProgressIndicator(),
-                    );
+                    return const ShimmerCharacterCard();
                   }
                   return Padding(
                     padding: const EdgeInsets.symmetric(horizontal: 12),

@@ -31,7 +31,9 @@ class DrawerWidget extends StatelessWidget {
                 DrawerModel(
                   name: 'Profile',
                   icon: Icons.account_box_rounded,
-                  onPressed: () {},
+                  onPressed: () {
+                    Get.to(ProfilePage(user: user));
+                  },
                 ),
                 const SizedBox(
                   height: 30,
@@ -91,7 +93,7 @@ class DrawerWidget extends StatelessWidget {
     );
   }
 
-Future<void> _handleLogout(BuildContext context) async {
+  Future<void> _handleLogout(BuildContext context) async {
     SharedPreferences prefs = await SharedPreferences.getInstance();
     await prefs.clear();
 
@@ -103,7 +105,8 @@ Future<void> _handleLogout(BuildContext context) async {
       children: [
         CircleAvatar(
           radius: 20,
-          backgroundImage: NetworkImage(user['image'] ?? 'https://via.placeholder.com/150'),
+          backgroundImage:
+              NetworkImage(user['image'] ?? 'https://via.placeholder.com/150'),
         ),
         const SizedBox(
           width: 20,

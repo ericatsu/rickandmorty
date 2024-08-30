@@ -22,7 +22,7 @@ class _BottomNavState extends State<BottomNav> {
       CharactersPage(user: widget.user),
       LocationsPage(),
       EpisodesPage(),
-      ProfilePage(user: widget.user),
+      //ProfilePage(user: widget.user),
     ];
   }
 
@@ -35,7 +35,7 @@ class _BottomNavState extends State<BottomNav> {
       backgroundColor: const Color.fromARGB(255, 241, 241, 241),
       bottomNavigationBar: BottomAppBar(
         child: Container(
-          height: height * 0.105,
+          height: height * 0.10,
           decoration: const BoxDecoration(
             color: Color.fromARGB(255, 230, 230, 230),
             borderRadius: BorderRadius.only(
@@ -46,30 +46,14 @@ class _BottomNavState extends State<BottomNav> {
           child: Column(
             mainAxisAlignment: MainAxisAlignment.spaceEvenly,
             children: [
-              Container(
-                height: 10,
-                color: Colors.transparent,
-              ),
-              Container(
-                decoration: const BoxDecoration(
-                  color: Color.fromARGB(255, 187, 187, 187),
-                  borderRadius: BorderRadius.all(Radius.circular(15)),
-                ),
-                height: height * 0.06,
-                width: width * 0.7,
-                child: Row(
-                  mainAxisAlignment: MainAxisAlignment.center,
-                  children: <Widget>[
-                    navIcon(CupertinoIcons.group, 0),
-                    navIcon(CupertinoIcons.placemark, 1),
-                    navIcon(CupertinoIcons.tv, 2),
-                    navIcon(CupertinoIcons.person, 3),
-                  ],
-                ),
-              ),
-              Container(
-                height: 10,
-                color: Colors.transparent,
+              Row(
+                mainAxisAlignment: MainAxisAlignment.spaceAround,
+                children: <Widget>[
+                  navIcon(CupertinoIcons.group, 0),
+                  navIcon(CupertinoIcons.placemark, 1),
+                  navIcon(CupertinoIcons.tv, 2),
+                  //navIcon(CupertinoIcons.person, 3),
+                ],
               ),
             ],
           ),

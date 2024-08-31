@@ -53,7 +53,7 @@ class BottomNav extends StatelessWidget {
               height: 32,
               color: isSelected ? Colors.white : const Color.fromARGB(129, 250, 250, 250),
             ),
-            const SizedBox(height: 4),
+            const SizedBox(height: 2.5),
             Text(
               label,
               style: TextStyle(

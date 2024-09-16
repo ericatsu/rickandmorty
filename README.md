@@ -1,6 +1,6 @@
 # Rick And Morty Mobile App
 
-Browse and search the characters, locations and episodes of the Rick And Morty series using Flutter and GraphQL.
+Browse and search the Characters, Locations and Episodes of the Rick And Morty series using Flutter and GraphQL.
 
 ## Introduction
 
